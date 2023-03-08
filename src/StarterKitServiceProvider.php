@@ -4,7 +4,7 @@ namespace Wiklog\StarterKit;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Wiklog\StarterKit\Commands\StarterKitCommand;
+use Wiklog\StarterKit\Commands\PublishInputsComponents;
 
 class StarterKitServiceProvider extends PackageServiceProvider
 {
@@ -17,9 +17,9 @@ class StarterKitServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('starter-kit')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_starter-kit_table')
-            ->hasCommand(StarterKitCommand::class);
+            // ->hasConfigFile('starter-kit')
+            // ->hasViews()
+            // ->hasMigration('create_starter-kit_table')
+            ->hasCommand(PublishInputsComponents::class);
     }
 }
