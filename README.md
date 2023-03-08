@@ -56,6 +56,11 @@ $starterKit = new Wiklog\StarterKit();
 echo $starterKit->echoPhrase('Hello, Wiklog!');
 ```
 
+You can publish inputs components:
+```bash
+php artisan wiklog-inputs-components:publish
+```
+
 ## Testing
 
 ```bash
@@ -66,18 +71,10 @@ composer test
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
-
-## Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
 
 ## Credits
 
 - [Wiklog](https://github.com/wiklog-sas)
-- [All Contributors](../../contributors)
 
 ## License
 
