@@ -2,7 +2,7 @@
 
 All notable changes to `starter-kit` will be documented in this file.
 
-## [1.0.0] - 2023-03-08
+## [0.1] - 2023-03-09
 
 ### Added
 
