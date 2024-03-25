@@ -12,6 +12,8 @@ All notable changes to `starter-kit` will be documented in this file.
 
 ### Added
 
+- Ajout du dossier commun
+
 ### Fix
 README.md
 
