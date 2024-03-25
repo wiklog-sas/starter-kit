@@ -15,9 +15,5 @@
          {{ ($checked || old($property, $old ?? '') == $value) ? 'checked=checked' : '' }}
   />
   <label for="{{ $property . '-' . Str::slug($label) }}" class="custom-control-label {{ $classLabel ?? '' }} {{ $required ? 'required' : '' }}">{!! $label !!}</label>
-  @error($property)
-    <span class="invalid-feedback" role="alert">
-      <strong>{{ $message }}</strong>
-    </span>
-  @enderror
+  <x-inputs.input-error-property />
 </div>

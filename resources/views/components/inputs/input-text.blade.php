@@ -2,55 +2,53 @@
   'property',
   'label',
   'placeholder',
-  'old',
+  'old'=> null,
   'required' => false,
-  'maxlength',
-  'minlength',
-  'classDiv',
-  'classLabel',
-  'classInput',
+  'maxlength'=> null,
+  'minlength'=> null,
+  'classDiv'=> null,
+  'classLabel'=> null,
+  'classInput'=> null,
   'readonly' => false,
   'disabled' => false,
-  'entity',
+  'entity' => null,
   'pivot' => false,
-  'itemPivot',
+  'itemPivot'=> null,
   'autofocus' => false,
-  'itemProperty'
+  'itemProperty'=> null
 ])
 
-<div class="{{ $classDiv ?? 'form-floating mb-3' }}" id="div_{{ $property }}">
+<div class="overflow-hidden {{ $classDiv ?? 'form-floating mb-3' }}" id="div_{{ $property }}">
 
   <input type="text" name="{{ $property }}" id="{{ $property }}" {{ $attributes->merge(['class' => 'form-control' . ($errors->has($property) ? ' is-invalid' : '')]) }}
     placeholder="{{ $placeholder ?? $label }}"
-    value="{{ old($property, $entity != null 
-      ? 
-        ($itemPivot == null 
-          ? ($itemProperty == null 
-            ? $entity->$property 
+    value="{{ old($property, $entity != null
+      ?
+        ($itemPivot == null
+          ? ($itemProperty == null
+            ? $entity->$property
             : $entity->$itemProperty)
-          : ($pivot 
-            ? $entity->pivot->$itemPivot 
+          : ($pivot
+            ? $entity->pivot->$itemPivot
             : $entity->$itemPivot)
-        ) 
+        )
       : ($old ?? '')) }}"
-    {{ bool_val($required) ? 'required="required"' : '' }}
+    {{ bool_val($required) ? 'required' : '' }}
     {{ $maxlength != null ? 'maxlength=' . $maxlength : '' }}
     {{ $minlength != null ? 'minlength=' . $minlength : '' }}
-    {{ bool_val($readonly) ? 'readonly="readonly"' : '' }}
+    {{ bool_val($readonly) ? 'readonly' : '' }}
     {{ bool_val($disabled) ? 'disabled' : '' }}
     {{ bool_val($autofocus) ? 'autofocus' : '' }}
   />
   <label for="{{ $property }}" class="{{ $classLabel ?? '' }} {{ bool_val($required) ? 'required' : '' }}">
-    {{ $label }}
+    {!! $label !!}
   </label>
-  @error($property)
-    <span class="invalid-feedback" role="alert">
-      <strong>{{ $message }}</strong>
-    </span>
-  @enderror
+
+  <x-inputs.input-error-property />
+
 </div>
 
-@if (bool_val($autofocus))  
+@if (bool_val($autofocus))
   <script>
     window.onload = function() {
       document.getElementById("{{ $property }}").focus();

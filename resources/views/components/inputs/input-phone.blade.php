@@ -1,7 +1,7 @@
 @php
-  $required = isset($required) ? ($required === "true" ? true : false) : false;
-  $disabled  = isset($disabled) ? ($disabled === 'true' ? true : false) : false;
-  $readonly  = isset($readonly) ? ($readonly === 'true' ? true : false) : false;
+  $required = isset($required) ? bool_val($required) : false;
+  $disabled  = isset($disabled) ? bool_val($disabled) : false;
+  $readonly  = isset($readonly) ? bool_val($readonly) : false;
 @endphp
 
 <div class="{{ $classDiv ?? 'form-floating mb-3'}}" id="div_{{ $property }}">
@@ -15,20 +15,16 @@
          class="{{ $classInput ?? 'form-control'}} @error($property) is-invalid @enderror"
          placeholder="{{ $placeholder??$label }}"
          value="{{ str_replace(' ', '', old($property, $entity != null ? $entity->$property : ($old ?? ''))) }}"
-         {!! $required ? 'required="required"' : '' !!}
+         {{ $required ? 'required' : '' }}
          {!! $maxlength != null ? 'maxlength="' . $maxlength . '"' : '' !!}
          {!! $minlength != null ? 'minlength="' . $minlength . '"' : '' !!}
          onblur="ajouterSeparateurTelephone('{{ $property }}')"
          onfocus="retirerSeparateurTelephone('{{ $property }}')"
-         {!! $disabled == 'true' ? 'disabled' : '' !!}
-         {!! $readonly == 'true' ? 'readonly' : '' !!}
+         {{ $disabled ? 'disabled' : '' }}
+         {{ $readonly ? 'readonly' : '' }}
   />
   <label for="{{ $property }}" class="{{ $classLabel ?? '' }} {{ $required ? 'required' : '' }}">{{ $label }}</label>
-  @error($property)
-    <span class="invalid-feedback" role="alert">
-      <strong>{{ $message }}</strong>
-    </span>
-  @enderror
+  <x-inputs.input-error-property />
   @if (!empty($classDivInput))
     </div>
   @endif

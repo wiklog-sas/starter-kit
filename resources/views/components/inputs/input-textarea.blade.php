@@ -24,20 +24,20 @@
             {{ bool_val($readonly) ? 'readonly' : '' }}
             {{ bool_val($disabled) ? 'disabled' : '' }}
             style="height: {{ $rows ?? 110 }}px">{!!
-              old($property, $entity != null 
-                ? 
-                  ($itemPivot == null 
-                    ? ($itemProperty == null 
-                      ? $entity->$property 
+              old($property, $entity != null
+                ?
+                  ($itemPivot == null
+                    ? ($itemProperty == null
+                      ? $entity->$property
                       : $entity->$itemProperty)
-                    : ($pivot 
-                      ? $entity->pivot->$itemPivot 
+                    : ($pivot
+                      ? $entity->pivot->$itemPivot
                       : $entity->$itemPivot)
-                  ) 
+                  )
                 : ($old ?? ''))
               !!}</textarea>
   <label for="{{ $property }}" class="{{ $classLabel ?? '' }} {{ bool_val($required) ? 'required' : '' }}">
-    {{ $label }}
+    {!! $label !!}
   </label>
   @error($property)
     <span class="invalid-feedback d-inline" role="alert">

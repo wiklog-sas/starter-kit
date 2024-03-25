@@ -18,21 +18,22 @@
   'decimal' => false,
   'currency' => false,
   'itemProperty',
+  'max_decimales' => 2
 ])
 
 @php
-  $old = old($property, $entity != null 
-    ? ($itemPivot == null 
-      ? ($itemProperty == null 
-        ? $entity->$property 
-        : $entity->$itemProperty) 
-      : ($pivot 
-        ? $entity->pivot->$itemPivot 
-        : $entity->$itemPivot)) 
+  $old = old($property, $entity != null
+    ? ($itemPivot == null
+      ? ($itemProperty == null
+        ? $entity->$property
+        : $entity->$itemProperty)
+      : ($pivot
+        ? $entity->pivot->$itemPivot
+        : $entity->$itemPivot))
     : ($old ?? ''));
 @endphp
 
-<div class="{{ $classDiv ?? 'form-floating mb-3'}}">
+<div class="overflow-hidden {{ $classDiv ?? 'form-floating mb-3'}}">
   <input type="{{ (bool_val($decimal) || bool_val($currency)) ? 'text' : 'number' }}"
          name="{{ $property }}"
          id="{{ $property }}"
@@ -55,28 +56,26 @@
         @endif
   />
   <label for="{{ $property }}" class="{{ $classLabel ?? '' }} {{ bool_val($required) ? 'required' : '' }}">{!! $label !!}</label>
-  @error($property)
-    <span class="invalid-feedback" role="alert">
-      <strong>{{ $message }}</strong>
-    </span>
-  @enderror
+  <x-inputs.input-error-property />
 </div>
 
 @if (bool_val($decimal) || bool_val($currency))
   <script>
     function ajouterDecoration(item, isCurrency) {
       let input = document.getElementById(item);
-      let options = isCurrency 
-      ? 
+      let options = isCurrency
+      ?
         {
           style: 'currency',
-          currency: 'EUR'
+          currency: 'EUR',
+          minimumFractionDigits: {{ $max_decimales }},
+          maximumFractionDigits: {{ $max_decimales }}
         }
-      : 
+      :
         {
-        style: 'decimal',
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
+          style: 'decimal',
+          minimumFractionDigits: {{ $max_decimales }},
+          maximumFractionDigits: {{ $max_decimales }}
         };
       let value = input.value.replace(/,/g, '.');
       value = Number(value.replace(/[^0-9.-]+/g, ''));

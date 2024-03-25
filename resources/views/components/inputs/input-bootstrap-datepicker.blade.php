@@ -8,7 +8,7 @@
   $disabled = isset($disabled) ? bool_val($disabled) : false;
 @endphp
 
-<div class="{{ $classDiv ?? 'form-floating mb-3'}} @error($property) is-invalid @enderror">
+<div class="overflow-hidden {{ $classDiv ?? 'form-floating mb-3'}} @error($property) is-invalid @enderror">
   <input name="{{ $property }}"
          id="{{ $property }}"
          class="datepicker {{ $classInput ?? 'form-control'}} @error($property) is-invalid @enderror"
@@ -21,9 +21,5 @@
   />
   <label for="{{ $property }}" class="{{ $classLabel ?? '' }} {{ $required ? 'required' : '' }}">{!! $label !!}</label>
   {{ $slot }}
-  @error($property)
-    <span class="invalid-feedback" role="alert">
-      <strong>{{ $message }}</strong>
-    </span>
-  @enderror
+  <x-inputs.input-error-property />
 </div>

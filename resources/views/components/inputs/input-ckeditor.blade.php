@@ -9,11 +9,7 @@
             id="{{ $property }}"
             class="{{ $classInput ?? 'form-control'}}"
             placeholder="{{ $placeholder ?? $label }}">{!! old($property, $old ?? '') !!}</textarea>
-  @error($property)
-    <span class="invalid-feedback" role="alert">
-      <strong>{{ $message }}</strong>
-    </span>
-  @enderror
+  <x-inputs.input-error-property />
 </div>
 
 <script>
