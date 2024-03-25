@@ -4,14 +4,16 @@ namespace Wiklog\StarterKit\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Composer;
 
 class PublishInputsComponents extends Command
 {
-    public $signature = 'wiklog-inputs-components:publish';
+    /* php artisan [signature] */
+    public string $signature = 'wiklog-inputs-components:publish';
 
-    public $description = 'Publie et crée les différents composants dans le projet Laravel';
+    public string $description = 'Publie et crée les différents composants dans le projet Laravel';
 
-    public $composer;
+    public Composer $composer;
 
     public function __construct()
     {
@@ -23,8 +25,6 @@ class PublishInputsComponents extends Command
     public function handle(): int
     {
         $file_system = new Filesystem();
-
-        $this->comment(get_class($this->composer));
 
         //Publish Inputs classes
         $this->comment('Publications des fichiers de classe des composants');
