@@ -18,7 +18,6 @@ class StarterKitServiceProvider extends PackageServiceProvider
         $package
             ->name('starter-kit')
             // ->hasConfigFile('starter-kit')
-            ->hasViews()
             // ->hasMigration('create_starter-kit_table')
             ->hasCommand(PublishInputsComponents::class);
     }
