@@ -7,7 +7,7 @@ Starter kit pour le développement de solutions sur le framework Laravel.
 You can install the package via composer:
 
 ```bash
-composer require wiklog/starter-kit
+composer require --dev wiklog/starter-kit
 ```
 
 ## Usage

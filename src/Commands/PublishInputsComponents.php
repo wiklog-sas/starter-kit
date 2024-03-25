@@ -34,7 +34,7 @@ class PublishInputsComponents extends Command
         //Publish Inputs views
         $folder_origin = __DIR__.'/../../resources/components/inputs/views/';
         $destination = resource_path('views/components/inputs');
-        $this->publishFilesInFolder($folder_origin, $destination);
+        // $this->publishFilesInFolder($folder_origin, $destination);
 
         $this->comment('Composants inputs publiés');
 
