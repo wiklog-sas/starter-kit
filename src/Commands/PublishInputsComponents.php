@@ -9,9 +9,9 @@ use Illuminate\Support\Composer;
 class PublishInputsComponents extends Command
 {
     /* php artisan [signature] */
-    public string $signature = 'wiklog-inputs-components:publish';
+    public $signature = 'wiklog-inputs-components:publish';
 
-    public string $description = 'Publie et crée les différents composants dans le projet Laravel';
+    public $description = 'Publie et crée les différents composants dans le projet Laravel';
 
     public Composer $composer;
 
