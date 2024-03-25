@@ -2,10 +2,8 @@
 
 namespace Wiklog\StarterKit\Commands;
 
-use DirectoryIterator;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
-use Illuminate\Support\Facades\App;
 
 class PublishInputsComponents extends Command
 {
