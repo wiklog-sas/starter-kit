@@ -24,17 +24,21 @@ class PublishInputsComponents extends Command
     {
         $file_system = new Filesystem();
 
+        $this->comment(get_class($this->composer));
+
         //Publish Inputs classes
+        $this->comment('Publications des fichiers de classe des composants');
         $folder_origin = __DIR__.'/../../resources/classes/Inputs';
         $destination = app_path('View/Components/Inputs');
         $file_system->copyDirectory($folder_origin, $destination);
 
         //Publish Inputs views
+        $this->comment('Publications des composants blade');
         $folder_origin = __DIR__.'/../../resources/views/components';
         $destination = resource_path('views/components');
         $file_system->copyDirectory($folder_origin, $destination);
 
-        $this->comment('Composants inputs publiés');
+        $this->comment('Composants publiés');
         $this->comment('Regenerate the optimized Composer autoloader files.');
         $this->composer->dumpOptimized();
         $this->comment('Package installé !');
