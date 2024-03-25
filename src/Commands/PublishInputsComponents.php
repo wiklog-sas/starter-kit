@@ -9,7 +9,7 @@ use Illuminate\Support\Composer;
 class PublishInputsComponents extends Command
 {
     /* php artisan [signature] */
-    public $signature = 'starter-components:publish';
+    public $signature = 'starter:components';
 
     public $description = 'Publie les composants dans le projet Laravel';
 
