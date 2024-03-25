@@ -26,7 +26,7 @@ class PublishCommonJs extends Command
     {
         $file_system = new Filesystem();
 
-        // Publish components classes
+        // Publish common files
         $this->comment('Publications des fichiers communs');
         $folder_origin = __DIR__.'/../../resources/views/commun';
         $destination = resource_path('views/commun');
