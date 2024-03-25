@@ -9,9 +9,9 @@ use Illuminate\Support\Composer;
 class PublishInputsComponents extends Command
 {
     /* php artisan [signature] */
-    public $signature = 'wiklog-inputs-components:publish';
+    public $signature = 'starter-components:publish';
 
-    public $description = 'Publie et crée les différents composants dans le projet Laravel';
+    public $description = 'Publie les composants dans le projet Laravel';
 
     public Composer $composer;
 
@@ -26,14 +26,14 @@ class PublishInputsComponents extends Command
     {
         $file_system = new Filesystem();
 
-        //Publish Inputs classes
+        // Publish components classes
         $this->comment('Publications des fichiers de classe des composants');
         $folder_origin = __DIR__.'/../../resources/classes/Inputs';
         $destination = app_path('View/Components/Inputs');
         $file_system->copyDirectory($folder_origin, $destination);
 
-        //Publish Inputs views
-        $this->comment('Publications des composants blade');
+        // Publish components views
+        $this->comment('Publications des composants blades');
         $folder_origin = __DIR__.'/../../resources/views/components';
         $destination = resource_path('views/components');
         $file_system->copyDirectory($folder_origin, $destination);

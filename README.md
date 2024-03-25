@@ -12,9 +12,9 @@ composer require --dev wiklog/starter-kit
 
 ## Usage
 
-You can publish inputs components:
+You can publish the components:
 ```bash
-php artisan wiklog-inputs-components:publish
+php artisan starter-components:publish
 ```
 
 ## Changelog
