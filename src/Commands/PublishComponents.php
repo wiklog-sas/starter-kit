@@ -41,7 +41,7 @@ class PublishComponents extends Command
         $this->comment('Composants publiés');
         $this->comment('Regenerate the optimized Composer autoloader files.');
         $this->composer->dumpOptimized();
-        $this->comment('Package installé !');
+        $this->comment('Composants publiés !');
 
         return self::SUCCESS;
     }
