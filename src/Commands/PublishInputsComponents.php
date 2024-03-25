@@ -5,7 +5,6 @@ namespace Wiklog\StarterKit\Commands;
 use DirectoryIterator;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
-use Illuminate\Http\File;
 
 class PublishInputsComponents extends Command
 {
@@ -30,7 +29,7 @@ class PublishInputsComponents extends Command
         $folder_origin = __DIR__.'/../../resources/classes/Inputs';
         $destination = app_path('View/Components');
         $file_system->copyDirectory($folder_origin, $destination);
-        
+
         //Publish Inputs views
         $folder_origin = __DIR__.'/../../resources/components/inputs/views/';
         $destination = resource_path('views/components/inputs');
