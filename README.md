@@ -14,7 +14,12 @@ composer require --dev wiklog/starter-kit
 
 You can publish the components:
 ```bash
-php artisan starter-components:publish
+php artisan starter:components
+```
+
+You can publish the commun folder:
+```bash
+php artisan starter:commonJs
 ```
 
 ## Changelog
