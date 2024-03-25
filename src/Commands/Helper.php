@@ -3,10 +3,7 @@
 namespace Wiklog\StarterKit\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Composer;
-use Wiklog\StarterKit\StarterKit;
-use Wiklog\StarterKit\StarterKitServiceProvider;
 
 class PublishCommonJs extends Command
 {
@@ -32,6 +29,7 @@ class PublishCommonJs extends Command
         foreach ($test as $command) {
             $this->line($command);
         }
+
         return self::SUCCESS;
     }
 }
