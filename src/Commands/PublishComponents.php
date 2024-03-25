@@ -6,7 +6,7 @@ use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Composer;
 
-class PublishInputsComponents extends Command
+class PublishComponents extends Command
 {
     /* php artisan [signature] */
     public $signature = 'starter:components';
