@@ -3,9 +3,9 @@
 namespace Wiklog\StarterKit;
 
 use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Wiklog\StarterKit\Commands\PublishCommonJs;
 use Wiklog\StarterKit\Commands\PublishComponents;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class StarterKitServiceProvider extends PackageServiceProvider
 {
