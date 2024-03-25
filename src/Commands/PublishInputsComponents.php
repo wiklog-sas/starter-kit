@@ -32,7 +32,7 @@ class PublishInputsComponents extends Command
         $file_system->copyDirectory($folder_origin, $destination);
 
         //Publish Inputs views
-        $folder_origin = __DIR__.'/../../resources/components/inputs/views';
+        $folder_origin = __DIR__.'/../../resources/views/components';
         $destination = resource_path('views/components');
         $file_system->copyDirectory($folder_origin, $destination);
 
