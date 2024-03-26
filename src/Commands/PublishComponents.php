@@ -3,8 +3,8 @@
 namespace Wiklog\StarterKit\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Composer;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Composer;
 use Wiklog\StarterKit\Config\Starter;
 
 class PublishComponents extends Command
