@@ -2,10 +2,10 @@
 
 namespace Wiklog\StarterKit\Commands;
 
-use config\Starter;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Composer;
+use Wiklog\StarterKit\Config\Starter;
 
 class PublishLibrairiesMigration extends Command
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace config;
+namespace Wiklog\StarterKit\Config;
 
 class Starter
 {
