@@ -3,9 +3,9 @@
 namespace Wiklog\StarterKit\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Composer;
 use Wiklog\StarterKit\StarterKit;
-use Illuminate\Filesystem\Filesystem;
 
 class PublishCommonJs extends Command
 {
