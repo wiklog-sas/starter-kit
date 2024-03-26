@@ -3,13 +3,14 @@
 namespace Wiklog\StarterKit\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Composer;
+use Illuminate\Filesystem\Filesystem;
+use Wiklog\StarterKit\Starter\Starter;
 
 class PublishCommonJs extends Command
 {
     /* php artisan [signature] */
-    public $signature = 'starter:commonJs';
+    public $signature = Starter::PREFIX_CMD . 'commonJs';
 
     public $description = 'Publie le répertoire commun';
 
@@ -28,7 +29,7 @@ class PublishCommonJs extends Command
 
         // Publish common files
         $this->comment('Publications des fichiers communs');
-        $folder_origin = __DIR__.'/../../resources/views/commun';
+        $folder_origin = Starter::RESOURCES_PATH . 'views/commun';
         $destination = resource_path('views/commun');
         $file_system->copyDirectory($folder_origin, $destination);
 

@@ -22,6 +22,11 @@ You can publish the commun folder:
 php artisan starter:commonJs
 ```
 
+You can publish the librairies migration:
+```bash
+php artisan starter:librairies
+```
+
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
