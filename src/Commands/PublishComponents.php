@@ -4,8 +4,8 @@ namespace Wiklog\StarterKit\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Composer;
-use Illuminate\Filesystem\Filesystem;
 use Wiklog\StarterKit\StarterKit;
+use Illuminate\Filesystem\Filesystem;
 
 class PublishComponents extends Command
 {
