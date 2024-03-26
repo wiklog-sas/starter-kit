@@ -5,7 +5,7 @@ namespace Wiklog\StarterKit\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Composer;
-use Wiklog\StarterKit\Starter\Starter;
+use config\Starter;
 
 class PublishLibrairiesMigration extends Command
 {

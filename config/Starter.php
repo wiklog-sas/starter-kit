@@ -1,6 +1,6 @@
 <?php 
 
-namespace Wiklog\StarterKit\Starter;
+namespace config;
 
 class Starter {
     public const PREFIX_CMD = 'starter:';
