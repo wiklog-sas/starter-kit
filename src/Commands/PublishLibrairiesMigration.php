@@ -2,15 +2,15 @@
 
 namespace Wiklog\StarterKit\Commands;
 
-use Wiklog\StarterKit\Starter;
 use Illuminate\Console\Command;
 use Illuminate\Support\Composer;
+use Wiklog\StarterKit\StarterKit;
 use Illuminate\Filesystem\Filesystem;
 
 class PublishLibrairiesMigration extends Command
 {
     /* php artisan [signature] */
-    public $signature = Starter::PREFIX_CMD.'librairies';
+    public $signature = StarterKit::PREFIX_CMD.'librairies';
 
     public $description = 'Publie la migration pour la table librairies';
 
@@ -30,7 +30,7 @@ class PublishLibrairiesMigration extends Command
         // Publish migration file
         $this->comment('Publications du fichier de migration');
 
-        $file_origin = Starter::MIGRATION_PATH.'2024_01_23_112424_create_librairies_table.php';
+        $file_origin = StarterKit::MIGRATION_PATH.'2024_01_23_112424_create_librairies_table.php';
         $destination = database_path('migrations');
         $file_system->copy($file_origin, $destination);
 
