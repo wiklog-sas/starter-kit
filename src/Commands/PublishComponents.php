@@ -2,10 +2,10 @@
 
 namespace Wiklog\StarterKit\Commands;
 
+use Wiklog\StarterKit\Starter;
 use Illuminate\Console\Command;
-use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Composer;
-use Wiklog\StarterKit\Config\Starter;
+use Illuminate\Filesystem\Filesystem;
 
 class PublishComponents extends Command
 {
