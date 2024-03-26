@@ -30,7 +30,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
 
     /**
      * @param  string  $template  path
-     *
      * @return void
      */
     public function __construct(?string $template = null)
@@ -47,7 +46,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
      * @param  string|null  $author  autheur (défaut: env('APP_NAME'))
      * @param  string|null  $creator  créateur (défaut: config('app.name'))
      * @param  string|null  $keywords  mots-clés (defaut: $subject)
-     *
      * @return void
      */
     public function initMeta(?string $title = null, ?string $subjet = null, ?string $author = null, ?string $creator = null, ?string $keywords = null)
@@ -80,7 +78,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
      * @param  bool  $adjustPageSize  defaut = true
      * @param  bool  $callStaticContentFunction  faire appeler la fonction addStatiqueContent()
      * @param  int  $numero_page  numero de la page à importer depuis le template
-     *
      * @return void
      */
     public function ajouterPage(?string $template = null, bool $adjustPageSize = true, bool $callStaticContentFunction = true, int $numero_page = 1)
@@ -100,9 +97,7 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
     /**
      * Ajoute toutes les pages d'un template
      *
-     * @param  string  $template
      * @param  bool  $adjustPageSize  defaut = true
-     *
      * @return void
      */
     public function ajouterPagesFrom(string $template, bool $adjustPageSize = true)
@@ -116,13 +111,11 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
     }
 
     /**
-     * Ajoute les pages d'un template depuis la page $debut à la page $to 
+     * Ajoute les pages d'un template depuis la page $debut à la page $to
      *
-     * @param  string  $template
      * @param  int  $from  debut = 1
      * @param  int  $to  fin = 1
      * @param  bool  $adjustPageSize  defaut = true
-     *
      * @return void
      */
     public function ajouterPagesFromTo(string $template, int $from = 1, int $to = 1, bool $adjustPageSize = true)
@@ -135,11 +128,9 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
         }
     }
 
-
     /**
      * Converti une chaine de caractère en UTF-8.
      *
-     * @param  string  $txt
      *
      * @return string|false
      */
@@ -162,15 +153,13 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
      * @param  array<int>  $textColor  couleur du texte rgb
      * @param  string  $textStyle  style du texte BUI
      * @param  float  $textSize  taille de la police
-     * @param  mixed  $link
      * @param  bool  $toUtf8  en utf8
-     *
      * @return void
      */
     public function cellule(
         string $txt = '',
         float $w = 0,
-        float $h = null,
+        ?float $h = null,
         mixed $border = 0,
         int $ligneSuivante = 1,
         string $align = 'J',
@@ -220,13 +209,12 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
      * @param  string  $textStyle  style du texte BUI
      * @param  float  $textSize  taille de la police
      * @param  bool  $toUtf8  en utf8
-     *
      * @return void
      */
     public function multicellule(
         string $txt = '',
         float $w = 0,
-        float $h = null,
+        ?float $h = null,
         mixed $border = 0,
         int $ligneSuivante = 1,
         string $align = 'J',
@@ -271,7 +259,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
      * Ajouter une ligne au tableau
      *
      * @param  array<string|int>  $data  liste des données de la ligne à ajouter
-     *
      * @return void
      */
     public function row($data, bool $toUtf8 = true)
@@ -344,7 +331,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
     /**
      * @param  int  $h  hauteur
      *                  Note : Pour régler la marge inférieur de saut de ligne, voir SetAutoPageBreak(true, $margeRestante)
-     *
      * @return void
      */
     public function CheckPageBreak($h)
@@ -438,7 +424,7 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
             $this->SetXY(180, 272);
             $this->SetFont('Helvetica', '', 9);
             $this->SetTextColor(30, 30, 30);
-            $this->Cell(0, 10, 'Page ' . $this->PageNo() . ' / {nbPages}');
+            $this->Cell(0, 10, 'Page '.$this->PageNo().' / {nbPages}');
         }
     }
 
@@ -446,7 +432,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
      * Set et get la position sur l'abscisse (x),
      *
      * @param  float  $x  Valeur de l'abscisse. Si la valeur est négative, elle est relative de la droite de la page (max: 210 (A4))
-     *
      * @return float
      */
     public function x(?float $x = null)
@@ -462,7 +447,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
      * Set et get la position sur l'ordonné (y)
      *
      * @param  float  $y  Valeur de l'ordonné. Si la valeur est négative, elle est relative de la droite de la page (max: 210 (A4))
-     *
      * @return float
      */
     public function y(?float $y = null)
@@ -480,7 +464,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
      *
      * @param  float  $x  Valeur de l’abscisse (max: 210 (A4))
      * @param  float  $y  Valeur de l’ordonnée (max: 297 (A4))
-     *
      * @return void
      */
     public function xy(float $x, float $y)
@@ -502,8 +485,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
      * Set le template à utiliser pour l'ajout de page
      *
      * @param  string  $template
-     *
-     * @return PDFMulticellTableauModel
      */
     public function setTemplate($template): self
     {
@@ -526,10 +507,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
     /**
      * Configure les bordures pour les cellules des tableaux.
      * Seulement via la méthode Row()
-     *
-     * @param  bool  $has_bordure
-     *
-     * @return PDFMulticellTableauModel
      */
     public function setHasBorder(bool $has_bordure): self
     {
@@ -552,8 +529,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
      * Configure les colonnes des tableaux via la méthode Row()
      *
      * @param  array  $config_colonnes
-     *
-     * @return PDFMulticellTableauModel
      */
     public function setConfigColonnes($config_colonnes): self
     {
@@ -567,7 +542,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
      * Méthode à appeler si utilisation de tableau via Row() pour changer la taille de la police
      *
      * @param  float  $size
-     *
      * @return void
      */
     public function SetFontSize($size)
@@ -579,7 +553,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
      * Set la marge gauche (alias de SetLeftMargin)
      * Remplace l'ancien x_table
      *
-     * @param  float  $distance
      *
      * @return void
      */
@@ -591,7 +564,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
     /**
      * Set la marge droite (alias de SetRightMargin)
      *
-     * @param  float  $distance
      *
      * @return void
      */
@@ -603,7 +575,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
     /**
      * Set la marge du haut (alias de SetTopMargin)
      *
-     * @param  float  $distance
      *
      * @return void
      */
@@ -615,7 +586,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
     /**
      * Set la marge du bas
      *
-     * @param  float  $distance
      *
      * @return void
      */
@@ -627,7 +597,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
     /**
      * Active la numérotation des pages dans le footer
      *
-     * @param  bool  $has_numerotation_page
      *
      * @return void
      */
@@ -638,8 +607,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
 
     /**
      * Get la hauteur par défaut des cellules et multicellules
-     * 
-     * @return float
      */
     public function getHauteurCelluleDefaut(): float
     {
@@ -648,8 +615,8 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
 
     /**
      * Set la hauteur par défaut des cellules et multicellules
-     * 
-     * @param float $hauteurCelluleDefaut valeur
+     *
+     * @param  float  $hauteurCelluleDefaut  valeur
      * @return void
      */
     public function setHauteurCelluleDefaut(float $hauteurCelluleDefaut)
@@ -688,7 +655,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
      * @param  string  $align  Alignement dans la cellule (L = gauche, C = centré, R = droite, J = justifié)
      * @param  bool  $fill  Indique si le cellule est remplie (true) via la couleur défini dans setFillColor()
      * @param  mixed  $link  URL ou identifiant renvoyé par AddLink()
-     *
      * @return void
      */
     public function cell($w, $h = 0, $txt = '', $border = 0, $ln = 0, $align = '', $fill = false, $link = '')
@@ -733,7 +699,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
      * @param  float  $h  Hauteur de l'image
      * @param  string  $type  Format de l'image (JPG, JPEG, PNG, GIF (voir doc))
      * @param  mixed  $link  URL ou identifiant renvoyé par AddLink().
-     *
      * @return void
      */
     public function image($file, $x = null, $y = null, $w = 0, $h = 0, $type = '', $link = '')
@@ -745,7 +710,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
      * Effectue un saut de ligne et retoure l'abscisse à la marge de gauche
      *
      * @param  float  $h  Hauteur du saut de ligne (defaut = hauteur de la dernière cellule)
-     *
      * @return void
      */
     public function ln($h = null)
@@ -764,7 +728,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
      *                        - S: renvoie le document sous forme de chaîne de caractères.
      * @param  string  $name  Nom du fichier. Il est ignoré en cas de destination S
      * @param  bool  $isUTF8  Indique s’il est encodé en ISO-8859-1 ou UTF-8. Utilisé uniquement pour les destinations I et D.
-     *
      * @return string
      */
     public function output($dest = '', $name = '', $isUTF8 = false)
@@ -783,7 +746,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
      * @param  mixed  $border  Indique si la cellule doit avoir une bordure. Les valeurs possibles sont : 0 (aucune), 1 (toutes les bordures), ou 'LTRB' (gauche, haut, droite, bas)
      * @param  string  $align  Alignement dans la cellule (L = gauche, C = centré, R = droite, J = justifié)
      * @param  bool  $fill  Indique si le cellule est remplie (true) via la couleur défini dans setFillColor()
-     *
      * @return void
      */
     public function multiCell($w, $h, $txt, $border = 0, $align = 'J', $fill = false)
@@ -800,7 +762,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
      * @param  float  $x  Abscisse de l’origine (x)
      * @param  float  $y  Ordonnée de l’origine (y)
      * @param  string  $txt  Texte
-     *
      * @return void
      */
     public function text($x, $y, $txt)
@@ -819,7 +780,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
      *                         - D: contour
      *                         - F: remplissage
      *                         - DF: contour et remplissage
-     *
      * @return void
      */
     public function rect($x, $y, $w, $h, $style = '')
@@ -834,7 +794,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
      *
      * @param  bool  $auto  Indique si le saut de page automatique est actif.
      * @param  float  $margin  Distance par rapport au bas de la page.
-     *
      * @return void
      */
     public function setAutoPageBreak($auto, $margin = 0)
@@ -850,7 +809,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
      * @param  int  $r  Composante rouge (0-255). Si $g et $b non indiqué = niveaux de gris
      * @param  int  $g  Composante vert (0-255)
      * @param  int  $b  Composante bleu (0-255)
-     *
      * @return void
      */
     public function setDrawColor($r, $g = null, $b = null)
@@ -866,7 +824,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
      * @param  int  $r  Composante rouge (0-255). Si $g et $b non indiqué = niveaux de gris
      * @param  int  $g  Composante vert (0-255)
      * @param  int  $b  Composante bleu (0-255)
-     *
      * @return void
      */
     public function setFillColor($r, $g = null, $b = null)
@@ -888,7 +845,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
      *                         - 'B' (gras)
      *                         - 'U' (souligné)
      * @param  float  $size  Taille de la police en points (défaut: 12)
-     *
      * @return void
      */
     public function setFont($family, $style = '', $size = 0)
@@ -902,7 +858,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
      * @param  int  $link  L’identificateur de lien renvoyé par AddLink().
      * @param  float  $y  Ordonnée de la position cible (-1 = position actuel, 0 = haut de la page)
      * @param  int  $page  Numéro de la page cible (-1 = page actuel)
-     *
      * @return mixed
      */
     public function setLink($link, $y = 0, $page = -1)
@@ -914,7 +869,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
      * Set la position sur l'abscisse (x).
      *
      * @param  float  $x  Valeur de l'abscisse. Si la valeur est négative, elle est relative de la droite de la page (max: 210 (A4))
-     *
      * @return void
      */
     public function setX($x)
@@ -928,7 +882,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
      *
      * @param  float  $x  Valeur de l’abscisse (max: 210 (A4))
      * @param  float  $y  Valeur de l’ordonnée (max: 297 (A4))
-     *
      * @return void
      */
     public function setXY($x, $y)
@@ -941,7 +894,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
      *
      * @param  float  $y  Valeur de l’ordonnée. (max: 297 (A4))
      * @param  bool  $resetX  Si true, la position sur l’abscisse (x) est réinitialisée.
-     *
      * @return void
      */
     public function setY($y, $resetX = true)
@@ -958,7 +910,6 @@ class PDFMulticellTableauModel extends PDFMulticellTableau
      * @param  float  $h  hauteur de la ligne
      * @param  string  $txt  texte
      * @param  mixed  $link  URL ou identifiant renvoyé par AddLink().
-     *
      * @return void
      */
     public function write($h, $txt, $link = '')
