@@ -26,6 +26,7 @@ class PublishPdfMulticell extends Command
     public function handle(): int
     {
         $file_system = new Filesystem();
+        $this->comment('Installation setasign/fpdf et setasign/fpdi');
         $this->composer->requirePackages(['setasign/fpdf', 'setasign/fpdi']);
 
         // Publish pdf files
