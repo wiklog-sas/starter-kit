@@ -3,14 +3,14 @@
 namespace Wiklog\StarterKit\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Composer;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Composer;
 use Wiklog\StarterKit\Starter\Starter;
 
 class PublishComponents extends Command
 {
     /* php artisan [signature] */
-    public $signature = Starter::PREFIX_CMD . 'components';
+    public $signature = Starter::PREFIX_CMD.'components';
 
     public $description = 'Publie les composants dans le projet Laravel';
 
