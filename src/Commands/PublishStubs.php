@@ -29,13 +29,13 @@ class PublishStubs extends Command
 
         // Publish stubs files
         $this->comment('Publications des fichiers stubs');
-        $folder_origin = StarterKit::PATH_PUBLISH_STUBS . 'stubs';
+        $folder_origin = StarterKit::PATH_PUBLISH_STUBS.'stubs';
         $destination = base_path('stubs');
         $file_system->copyDirectory($folder_origin, $destination);
 
         // Publish sh file
         $this->comment('Publications du fichier sh');
-        $file_origin = StarterKit::PATH_PUBLISH_STUBS . 'sh/newModel.sh';
+        $file_origin = StarterKit::PATH_PUBLISH_STUBS.'sh/newModel.sh';
         $destination = base_path();
         $file_system->copy($file_origin, $destination);
 

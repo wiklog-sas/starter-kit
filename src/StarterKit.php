@@ -14,6 +14,5 @@ class StarterKit
 
     public const RESOURCES_PATH = self::RACINE_PATH.'resources/';
 
-    public const PATH_PUBLISH_STUBS= self::RACINE_PATH.'publishStubs/';
-
+    public const PATH_PUBLISH_STUBS = self::RACINE_PATH.'publishStubs/';
 }
