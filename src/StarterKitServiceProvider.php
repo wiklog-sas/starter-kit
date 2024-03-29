@@ -8,6 +8,7 @@ use Wiklog\StarterKit\Commands\PublishCommonJs;
 use Wiklog\StarterKit\Commands\PublishComponents;
 use Wiklog\StarterKit\Commands\PublishIdeHelper;
 use Wiklog\StarterKit\Commands\PublishInsights;
+use Wiklog\StarterKit\Commands\PublishLarastan;
 use Wiklog\StarterKit\Commands\PublishLibrairiesMigration;
 use Wiklog\StarterKit\Commands\PublishPdfMulticell;
 use Wiklog\StarterKit\Commands\PublishStubs;
@@ -29,6 +30,7 @@ class StarterKitServiceProvider extends PackageServiceProvider
             ->hasCommand(PublishComponents::class)
             ->hasCommand(PublishIdeHelper::class)
             ->hasCommand(PublishInsights::class)
+            ->hasCommand(PublishLarastan::class)
             ->hasCommand(PublishLibrairiesMigration::class)
             ->hasCommand(PublishPdfMulticell::class)
             ->hasCommand(PublishStubs::class);
