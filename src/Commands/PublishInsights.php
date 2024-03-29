@@ -7,8 +7,6 @@ use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Composer;
 use Wiklog\StarterKit\StarterKit;
 
-use function Laravel\Prompts\confirm;
-
 class PublishInsights extends Command
 {
     /* php artisan [signature] */

@@ -31,7 +31,5 @@ class StarterKitServiceProvider extends PackageServiceProvider
             ->hasCommand(PublishPdfMulticell::class)
             ->hasCommand(PublishStubs::class);
 
-
-
     }
 }
