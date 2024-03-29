@@ -34,7 +34,7 @@ class PublishLarastan extends Command
         // Publication du fichier de configuration
         $file_origin = StarterKit::PATH_PUBLISH_LARASTAN.'phpstan.neon';
         $destination = base_path('phpstan.neon');
-        
+
         $file_system->copy($file_origin, $destination);
 
         $this->comment('Publication de larastan réussi !');
