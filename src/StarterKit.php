@@ -32,4 +32,6 @@ class StarterKit
     public const PATH_PUBLISH_STUBS = self::PATH_RESOURCES.'publishStubs/';
 
     public const PATH_PUBLISH_TRAITS = self::PATH_RESOURCES.'publishTraits/';
+
+    public const PATH_PUBLISH_WEBFONTS = self::PATH_RESOURCES.'publishWebfonts/';
 }

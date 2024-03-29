@@ -7,12 +7,12 @@ use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Composer;
 use Wiklog\StarterKit\StarterKit;
 
-class PublishTraits extends Command
+class PublishWebfonts extends Command
 {
     /* php artisan [signature] */
-    public $signature = StarterKit::PREFIX_SIGNATURE.'traits';
+    public $signature = StarterKit::PREFIX_SIGNATURE.'webfonts';
 
-    public $description = 'Publie les traits';
+    public $description = 'Publie les webfonts';
 
     public Composer $composer;
 
@@ -27,13 +27,13 @@ class PublishTraits extends Command
     {
         $file_system = new Filesystem();
 
-        // Publication des traits
-        $this->comment('Publications des traits');
-        $folder_origin = StarterKit::PATH_PUBLISH_TRAITS;
-        $destination = app_path('Traits');
+        // Publication des webfonts
+        $this->comment('Publications des webfonts');
+        $folder_origin = StarterKit::PATH_PUBLISH_WEBFONTS;
+        $destination = public_path('webfonts');
         $file_system->copyDirectory($folder_origin, $destination);
 
-        $this->comment('Publication de traits réussi !');
+        $this->comment('Publication des webfonts réussi !');
 
         return self::SUCCESS;
     }

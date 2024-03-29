@@ -13,6 +13,7 @@ use Wiklog\StarterKit\Commands\PublishLarastan;
 use Wiklog\StarterKit\Commands\PublishLibrairiesMigration;
 use Wiklog\StarterKit\Commands\PublishPdfMulticell;
 use Wiklog\StarterKit\Commands\PublishStubs;
+use Wiklog\StarterKit\Commands\PublishWebfonts;
 
 class StarterKitServiceProvider extends PackageServiceProvider
 {
@@ -35,7 +36,8 @@ class StarterKitServiceProvider extends PackageServiceProvider
             ->hasCommand(PublishLarastan::class)
             ->hasCommand(PublishLibrairiesMigration::class)
             ->hasCommand(PublishPdfMulticell::class)
-            ->hasCommand(PublishStubs::class);
+            ->hasCommand(PublishStubs::class)
+            ->hasCommand(PublishWebfonts::class);
 
     }
 }
