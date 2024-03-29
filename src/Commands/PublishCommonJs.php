@@ -10,7 +10,7 @@ use Wiklog\StarterKit\StarterKit;
 class PublishCommonJs extends Command
 {
     /* php artisan [signature] */
-    public $signature = StarterKit::PREFIX_CMD.'commonJs';
+    public $signature = StarterKit::PREFIX_SIGNATURE.'commun';
 
     public $description = 'Publie le répertoire commun';
 
@@ -29,14 +29,11 @@ class PublishCommonJs extends Command
 
         // Publish common files
         $this->comment('Publications des fichiers communs');
-        $folder_origin = StarterKit::RESOURCES_PATH.'views/commun';
+        $folder_origin = StarterKit::PATH_PUBLISH_COMMUN;
         $destination = resource_path('views/commun');
         $file_system->copyDirectory($folder_origin, $destination);
 
         $this->comment('Fichiers publiés');
-        $this->comment('Regenerate the optimized Composer autoloader files.');
-        $this->composer->dumpOptimized();
-        $this->comment('Publication réussi !');
 
         return self::SUCCESS;
     }

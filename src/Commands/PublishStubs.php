@@ -10,7 +10,7 @@ use Wiklog\StarterKit\StarterKit;
 class PublishStubs extends Command
 {
     /* php artisan [signature] */
-    public $signature = StarterKit::PREFIX_CMD.'stubs';
+    public $signature = StarterKit::PREFIX_SIGNATURE.'stubs';
 
     public $description = 'Publie le répertoire commun';
 

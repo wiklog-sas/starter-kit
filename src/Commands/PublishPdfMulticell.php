@@ -10,7 +10,7 @@ use Wiklog\StarterKit\StarterKit;
 class PublishPdfMulticell extends Command
 {
     /* php artisan [signature] */
-    public $signature = StarterKit::PREFIX_CMD.'pdfMulticell';
+    public $signature = StarterKit::PREFIX_SIGNATURE.'pdfMulticell';
 
     public $description = 'Publie les fichiers pour la génération de PDF Multicell';
 
@@ -28,17 +28,16 @@ class PublishPdfMulticell extends Command
         $file_system = new Filesystem();
         $this->comment('Installation setasign/fpdf et setasign/fpdi');
         $this->composer->requirePackages(['setasign/fpdf', 'setasign/fpdi']);
+        $this->comment('Regenerate the optimized Composer autoloader files.');
+        $this->composer->dumpOptimized();
 
         // Publish pdf files
         $this->comment('Publications des fichiers PdfMulticell');
-        $folder_origin = StarterKit::RESOURCES_PATH.'classes/pdf';
+        $folder_origin = StarterKit::PATH_PUBLISH_PDF_MULTICELL;
         $destination = app_path('Classes/PDF');
         $file_system->copyDirectory($folder_origin, $destination);
 
         $this->comment('Fichiers publiés');
-        $this->comment('Regenerate the optimized Composer autoloader files.');
-        $this->composer->dumpOptimized();
-        $this->comment('Publication réussi !');
 
         return self::SUCCESS;
     }

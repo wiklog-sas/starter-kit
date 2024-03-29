@@ -10,7 +10,7 @@ use Wiklog\StarterKit\StarterKit;
 class PublishLibrairiesMigration extends Command
 {
     /* php artisan [signature] */
-    public $signature = StarterKit::PREFIX_CMD.'librairies';
+    public $signature = StarterKit::PREFIX_SIGNATURE.'librairies';
 
     public $description = 'Publie la migration pour la table librairies';
 
@@ -30,7 +30,7 @@ class PublishLibrairiesMigration extends Command
         // Publish migration file
         $this->comment('Publications du fichier de migration');
 
-        $file_origin = StarterKit::MIGRATION_PATH.'2024_01_23_112424_create_librairies_table.php';
+        $file_origin = StarterKit::PATH_PUBLISH_LIBRAIRIES_MIGRATION.'2024_01_23_112424_create_librairies_table.php';
         $destination = database_path('migrations');
         $file_system->copy($file_origin, $destination);
 
