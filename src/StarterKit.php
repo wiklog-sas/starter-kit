@@ -23,6 +23,8 @@ class StarterKit
 
     public const PATH_PUBLISH_EXTEND_BLUEPRINT = self::PATH_RESOURCES.'publishExtendBlueprint/';
 
+    public const PATH_PUBLISH_HELPERS = self::PATH_RESOURCES.'publishHelpers/';
+
     public const PATH_PUBLISH_INSIGHTS = self::PATH_RESOURCES.'publishInsights/';
 
     public const PATH_PUBLISH_LARASTAN = self::PATH_RESOURCES.'publishLarastan/';
