@@ -34,6 +34,7 @@ class PublishHelpers extends Command
         $file_system->copy($file_origin, $destination);
 
         $this->addAutoloadDevHelpers();
+        $this->comment('Regenerate the Composer autoloader files.');
         $this->composer->dumpAutoloads();
 
         $this->comment('Publication du fichier helpers.php réussi !');
