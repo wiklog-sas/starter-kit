@@ -52,12 +52,14 @@ class PublishHelpers extends Command
 
         if (!in_array($autoload_path, $composer_config['autoload-dev']['files'])) {
             $composer_config['autoload-dev']['files'][] = $autoload_path;
+
+            $updated_composer_content = json_encode($composer_config, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+
+            File::put($composer_path, $updated_composer_content);
+
+            $this->comment('Ajout du fichier helpers.php en autoload-dev: files !');
+        } else {
+            $this->warn('Le fichier helpers.php existe déjà en autoload-dev: files !');
         }
-
-        $updated_composer_content = json_encode($composer_config, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
-
-        File::put($composer_path, $updated_composer_content);
-
-        $this->comment('Ajout du fichier helpers.php en autoload-dev: files !');
     }
 }
