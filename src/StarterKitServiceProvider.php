@@ -6,6 +6,7 @@ use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Wiklog\StarterKit\Commands\PublishCommonJs;
 use Wiklog\StarterKit\Commands\PublishComponents;
+use Wiklog\StarterKit\Commands\PublishDump;
 use Wiklog\StarterKit\Commands\PublishIdeHelper;
 use Wiklog\StarterKit\Commands\PublishInsights;
 use Wiklog\StarterKit\Commands\PublishLarastan;
@@ -28,6 +29,7 @@ class StarterKitServiceProvider extends PackageServiceProvider
             // ->hasMigration('create_starter-kit_table')
             ->hasCommand(PublishCommonJs::class)
             ->hasCommand(PublishComponents::class)
+            ->hasCommand(PublishDump::class)
             ->hasCommand(PublishIdeHelper::class)
             ->hasCommand(PublishInsights::class)
             ->hasCommand(PublishLarastan::class)

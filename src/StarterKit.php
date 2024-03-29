@@ -19,6 +19,8 @@ class StarterKit
 
     public const PATH_PUBLISH_COMPONENTS = self::PATH_RESOURCES.'publishComponents/';
 
+    public const PATH_PUBLISH_DUMP = self::PATH_RESOURCES.'publishDump/';
+
     public const PATH_PUBLISH_INSIGHTS = self::PATH_RESOURCES.'publishInsights/';
 
     public const PATH_PUBLISH_LARASTAN = self::PATH_RESOURCES.'publishLarastan/';
