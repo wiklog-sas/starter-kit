@@ -27,7 +27,6 @@ class PublishDump extends Command
     {
         $file_system = new Filesystem();
 
-
         // Publication du fichier newModel.sh
         $this->comment('Publication Dump');
         $file_origin = StarterKit::PATH_PUBLISH_DUMP.'dump/Dump.php';
