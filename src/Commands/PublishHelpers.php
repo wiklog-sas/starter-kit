@@ -3,10 +3,10 @@
 namespace Wiklog\StarterKit\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Composer;
-use Wiklog\StarterKit\StarterKit;
-use Illuminate\Support\Facades\File;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Composer;
+use Illuminate\Support\Facades\File;
+use Wiklog\StarterKit\StarterKit;
 
 class PublishHelpers extends Command
 {
@@ -41,16 +41,17 @@ class PublishHelpers extends Command
         return self::SUCCESS;
     }
 
-    public function addAutoloadDevHelpers(string $autoload_path) {
+    public function addAutoloadDevHelpers(string $autoload_path)
+    {
         $composer_path = base_path('composer.json');
         $composer_content = File::get($composer_path);
         $composer_config = json_decode($composer_content, true);
 
-        if (!isset($composer_config['autoload-dev'])) {
+        if (! isset($composer_config['autoload-dev'])) {
             $composer_config['autoload-dev'] = ['files' => []];
         }
 
-        if (!in_array($autoload_path, $composer_config['autoload-dev']['files'])) {
+        if (! in_array($autoload_path, $composer_config['autoload-dev']['files'])) {
             $composer_config['autoload-dev']['files'][] = $autoload_path;
         }
 
