@@ -29,7 +29,7 @@ class PublishLarastan extends Command
 
         // Installation insights
         $this->comment('Installation de larastan');
-        $this->composer->requirePackages(['nunomaduro/phpinsights'], true);
+        $this->composer->requirePackages(['larastan/larastan'], true);
 
         // Publication du fichier de configuration
         $file_origin = StarterKit::PATH_PUBLISH_LARASTAN.'phpstan.neon';

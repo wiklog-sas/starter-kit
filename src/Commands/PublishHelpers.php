@@ -33,7 +33,7 @@ class PublishHelpers extends Command
         $destination = app_path('Classes/Commun/helpers.php');
         $file_system->copy($file_origin, $destination);
 
-        $this->addAutoloadDevHelpers($destination);
+        $this->addAutoloadDevHelpers();
         $this->composer->dumpAutoloads();
 
         $this->comment('Publication du fichier helpers.php réussi !');
@@ -41,8 +41,9 @@ class PublishHelpers extends Command
         return self::SUCCESS;
     }
 
-    public function addAutoloadDevHelpers(string $autoload_path)
+    public function addAutoloadDevHelpers()
     {
+        $autoload_path = 'app/Classes/Commun/helpers.php';
         $composer_path = base_path('composer.json');
         $composer_content = File::get($composer_path);
         $composer_config = json_decode($composer_content, true);
