@@ -15,13 +15,13 @@ class StarterKit
 
     public const PATH_RESOURCES = self::PATH_RACINE.'resources/';
 
-    public const PATH_PUBLISH_COMMUN = self::PATH_RACINE.'publishCommun/';
+    public const PATH_PUBLISH_COMMUN = self::PATH_RESOURCES.'publishCommun/';
 
-    public const PATH_PUBLISH_COMPONENTS = self::PATH_RACINE.'publishComponents/';
+    public const PATH_PUBLISH_COMPONENTS = self::PATH_RESOURCES.'publishComponents/';
 
-    public const PATH_PUBLISH_LIBRAIRIES_MIGRATION = self::PATH_RACINE.'publishLibrairiesMigration/';
+    public const PATH_PUBLISH_LIBRAIRIES_MIGRATION = self::PATH_RESOURCES.'publishLibrairiesMigration/';
 
-    public const PATH_PUBLISH_PDF_MULTICELL = self::PATH_RACINE.'publishPdfMulticell/';
+    public const PATH_PUBLISH_PDF_MULTICELL = self::PATH_RESOURCES.'publishPdfMulticell/';
 
-    public const PATH_PUBLISH_STUBS = self::PATH_RACINE.'publishStubs/';
+    public const PATH_PUBLISH_STUBS = self::PATH_RESOURCES.'publishStubs/';
 }
