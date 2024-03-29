@@ -147,14 +147,6 @@
     );
   }
 
-  $.fn.dataTable.ext.search.push(
-    function(settings, data, dataIndex) {
-      var afficher = $('#showDeleted').is(":checked");
-
-      return afficher || data[col_deleted_at].length < 4;
-    }
-  );
-
   function setBootstrap5Style() {
     let divFilter = $('#table_id_filter');
     divFilter.removeClass('dataTables_filter');
@@ -188,6 +180,14 @@
 
       table.draw();
     });
+
+    $.fn.dataTable.ext.search.push(
+      function(settings, data, dataIndex) {
+        var afficher = $('#showDeleted').is(":checked");
+
+        return afficher || data[col_deleted_at].length < 4;
+      }
+    );
 
     // Recherche en cours
     table.search(Cookies.get('search_{{ session('level_menu_2') }}'));

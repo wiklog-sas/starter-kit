@@ -10,7 +10,7 @@
       <x-menu-item level_menu_1="home" label="{{ __('Accueil') }}" link="{{ route('accueil') }}" />
 
       {{-- Livre --}}
-      {{-- <x-menu-item level_menu_1="livre" label="{{ __('Livre') }}" link="{{ route('livre.index') }}" /> --}}
+      <x-menu-item level_menu_1="livre" label="{{ __('Livre') }}" link="{{ route('livre.index') }}" />
 
         {{-- Associations
         <x-menu-item level_menu_1="associations" label="{{ __('Associations') }}">
