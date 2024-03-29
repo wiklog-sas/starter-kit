@@ -29,7 +29,7 @@ class PublishHelpers extends Command
         $file_system = new Filesystem();
 
         // Publication du fichier helpers.php
-        $file_origin = StarterKit::PATH_PUBLISH_EXTEND_BLUEPRINT.'helpers.php';
+        $file_origin = StarterKit::PATH_PUBLISH_HELPERS.'helpers.php';
         $destination = app_path('Classes/Commun/helpers.php');
         $file_system->copy($file_origin, $destination);
 
