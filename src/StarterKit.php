@@ -21,8 +21,7 @@ class StarterKit
 
     public const PATH_PUBLISH_LIBRAIRIES_MIGRATION = self::PATH_RACINE.'publishLibrairiesMigration/';
 
-    public const PATH_PUBLISH_PDF_MULTICELL= self::PATH_RACINE.'publishPdfMulticell/';
+    public const PATH_PUBLISH_PDF_MULTICELL = self::PATH_RACINE.'publishPdfMulticell/';
 
     public const PATH_PUBLISH_STUBS = self::PATH_RACINE.'publishStubs/';
-
 }

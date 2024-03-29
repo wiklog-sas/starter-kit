@@ -5,7 +5,6 @@ namespace Wiklog\StarterKit\Classes;
 use FilesystemIterator;
 use Illuminate\Filesystem\Filesystem;
 
-
 class FileManager extends Filesystem
 {
     public function copyDirectory($directory, $destination, $options = null)
