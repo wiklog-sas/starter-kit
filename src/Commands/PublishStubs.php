@@ -36,7 +36,7 @@ class PublishStubs extends Command
         // Publish sh file
         $this->comment('Publications du fichier sh');
         $file_origin = StarterKit::PATH_PUBLISH_STUBS.'sh/newModel.sh';
-        $destination = base_path();
+        $destination = base_path().'newModel.sh';
         $file_system->copy($file_origin, $destination);
 
         $this->comment('Publication réussi !');
