@@ -19,6 +19,8 @@ class StarterKit
 
     public const PATH_PUBLISH_COMPONENTS = self::PATH_RESOURCES.'publishComponents/';
 
+    public const PATH_PUBLISH_INSIGHTS = self::PATH_RESOURCES.'publishInsights/';
+
     public const PATH_PUBLISH_LIBRAIRIES_MIGRATION = self::PATH_RESOURCES.'publishLibrairiesMigration/';
 
     public const PATH_PUBLISH_PDF_MULTICELL = self::PATH_RESOURCES.'publishPdfMulticell/';
