@@ -35,6 +35,8 @@ class StarterKit
 
     public const PATH_PUBLISH_INSIGHTS = self::PATH_RESOURCES.'publishInsights/';
 
+    public const PATH_PUBLISH_KERNEL = self::PATH_RESOURCES.'publishKernel/';
+
     public const PATH_PUBLISH_LARASTAN = self::PATH_RESOURCES.'publishLarastan/';
 
     public const PATH_PUBLISH_LIBRAIRIES_MIGRATION = self::PATH_RESOURCES.'publishLibrairiesMigration/';
