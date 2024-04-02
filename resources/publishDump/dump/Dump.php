@@ -32,6 +32,7 @@ class Dump
     /**
      * Création d'un dump de la base de données en fonction et suppression des fichiers hors période de rétention
      *
+     * @return void
      *
      * @throws InvalidArgumentException
      * @throws BindingResolutionException
@@ -43,7 +44,7 @@ class Dump
         $host = env('DB_HOST');
         $db_name = env('DB_DATABASE');
 
-        $limit = 'P'.$this->nb_days_to_keep.'D';
+        $limit = 'P' . $this->nb_days_to_keep . 'D';
         $date = new DateTime();
         $filename = $date->format('Y-m-d-H-i-s');
         $start_date = $date->sub(new DateInterval($limit));
@@ -55,7 +56,7 @@ class Dump
             if (is_numeric(substr($file, 0, 4))) {
                 $file_date = DateTime::createFromFormat('Y-m-d', substr($file, 0, 10));
                 if ($file_date < $start_date) {
-                    unlink($path.$file);
+                    unlink($path . $file);
                 }
             }
         }
@@ -64,13 +65,13 @@ class Dump
 
         if ($this->is_zipped) {
             $zip = new ZipArchive();
-            if ($zip->open($path.$filename.'.zip', ZipArchive::CREATE) !== true) {
+            if ($zip->open($path . $filename . '.zip', ZipArchive::CREATE) !== true) {
                 exit(1);
             }
             $zip->addFile("{$path}{$filename}.sql", "{$filename}.sql");
             $zip->close();
 
-            unlink($path.$filename.'.sql');
+            unlink($path . $filename . '.sql');
         }
     }
 }
