@@ -24,6 +24,7 @@ use Wiklog\StarterKit\Commands\PublishPdfMulticell;
 use Wiklog\StarterKit\Commands\PublishResourcesScss;
 use Wiklog\StarterKit\Commands\PublishResourcesViews;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Wiklog\StarterKit\Commands\PublishBouncer;
 use Wiklog\StarterKit\Commands\PublishEnv;
 use Wiklog\StarterKit\Commands\PublishExtendBlueprint;
 use Wiklog\StarterKit\Commands\PublishLibrairiesMigration;
@@ -47,6 +48,7 @@ class StarterKitServiceProvider extends PackageServiceProvider
             // ->hasConfigFile('starter-kit')
             // ->hasMigration('create_starter-kit_table')
             ->hasCommand(PublishAuth::class)
+            ->hasCommand(PublishBouncer::class)
             ->hasCommand(PublishCommonJs::class)
             ->hasCommand(PublishComponents::class)
             ->hasCommand(PublishController::class)

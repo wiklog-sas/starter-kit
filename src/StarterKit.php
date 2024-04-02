@@ -17,6 +17,8 @@ class StarterKit
 
     public const PATH_PUBLISH_AUTH = self::PATH_RESOURCES.'publishAuth/';
 
+    public const PATH_PUBLISH_BOUNCER = self::PATH_RESOURCES.'publishBouncer/';
+
     public const PATH_PUBLISH_COMMUN = self::PATH_RESOURCES.'publishCommun/';
 
     public const PATH_PUBLISH_COMPONENTS = self::PATH_RESOURCES.'publishComponents/';
