@@ -22,6 +22,7 @@ use Wiklog\StarterKit\Commands\PublishResourcesScss;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Wiklog\StarterKit\Commands\PublishExtendBlueprint;
 use Wiklog\StarterKit\Commands\PublishLibrairiesMigration;
+use Wiklog\StarterKit\Commands\PublishResourcesViews;
 
 class StarterKitServiceProvider extends PackageServiceProvider
 {
@@ -51,6 +52,7 @@ class StarterKitServiceProvider extends PackageServiceProvider
             ->hasCommand(PublishPdfMulticell::class)
             ->hasCommand(PublishResourcesJs::class)
             ->hasCommand(PublishResourcesScss::class)
+            ->hasCommand(PublishResourcesViews::class)
             ->hasCommand(PublishStubs::class)
             ->hasCommand(PublishTraits::class)
             ->hasCommand(PublishWebfonts::class);
