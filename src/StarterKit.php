@@ -41,6 +41,8 @@ class StarterKit
 
     public const PATH_PUBLISH_RESOURCES_JS = self::PATH_RESOURCES.'publishResourcesJs/';
 
+    public const PATH_PUBLISH_RESOURCES_SCSS = self::PATH_RESOURCES.'publishResourcesScss/';
+
     public const PATH_PUBLISH_STUBS = self::PATH_RESOURCES.'publishStubs/';
 
     public const PATH_PUBLISH_TRAITS = self::PATH_RESOURCES.'publishTraits/';
