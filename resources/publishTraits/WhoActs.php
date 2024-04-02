@@ -16,6 +16,8 @@ trait WhoActs
 {
     /**
      * Renvoie le User de création du Model
+     *
+     * @return BelongsTo
      */
     public function userCreation(): BelongsTo
     {
@@ -24,6 +26,8 @@ trait WhoActs
 
     /**
      * Renvoie le User de modification du Model
+     *
+     * @return BelongsTo
      */
     public function userModification(): BelongsTo
     {
@@ -32,6 +36,8 @@ trait WhoActs
 
     /**
      * Renvoie le User de suppression du Model
+     *
+     * @return BelongsTo
      */
     public function userSuppression(): BelongsTo
     {

@@ -113,12 +113,14 @@ trait LogAction
     }
 
     /**
+     * @param  string  $action
      * @param  mixed  $model
+     *
      * @return void
      */
     private static function log(string $action, $model)
     {
-        Log::info($action.' model '.static::class);
+        Log::info($action . ' model ' . static::class);
         if (Auth::check()) {
             /** @var User $user */
             $user = Auth::user();
@@ -127,7 +129,7 @@ trait LogAction
             Log::info('Non connecté / Anonyme');
         }
         Log::info($model);
-        $custom = 'custom'.ucfirst($action);
+        $custom = 'custom' . ucfirst($action);
         if (method_exists($model, $custom)) {
             $model::$custom($model);         // @phpstan-ignore-line
         }

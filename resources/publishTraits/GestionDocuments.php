@@ -40,24 +40,28 @@ trait GestionDocuments
     /**
      * Télécharge le document à partir du nom du document
      *
+     * @param  int  $id
      * @param  string  $documents  nom du document
+     *
      * @return BinaryFileResponse
      */
     public function telechargerDocuments(int $id, string $documents)
     {
-        return response()->download(Storage::path(self::PATH_DOCUMENTS.$id.'/'.$documents), null, ['Content-type' => 'application/pdf;charset=UTF-8']);
+        return response()->download(Storage::path(self::PATH_DOCUMENTS . $id . '/' . $documents), null, ['Content-type' => 'application/pdf;charset=UTF-8']);
     }
 
     /**
      * Supprime un fichier en le renommant delete-date-nomFichier
      *
+     * @param  int  $id
      * @param  string  $documents  nom du fichier
+     *
      * @return RedirectResponse
      */
     public function supprimerDocument(int $id, string $documents)
     {
-        $path = self::PATH_DOCUMENTS.$id.'/'.$documents;
-        $new_path = self::PATH_DOCUMENTS.$id.'/deleted-'.date('YmdHi').'_'.uniqid().'-'.$documents;
+        $path = self::PATH_DOCUMENTS . $id . '/' . $documents;
+        $new_path = self::PATH_DOCUMENTS . $id . '/deleted-' . date('YmdHi') . '_' . uniqid() . '-'. $documents;
 
         Storage::move($path, $new_path);
 
@@ -67,6 +71,8 @@ trait GestionDocuments
     /**
      * Enregistre la liste des fichiers contenues dans la liste "documents"
      *
+     * @param  Request  $request
+     * @param  mixed  $entity
      *
      * @return void
      */
@@ -76,7 +82,7 @@ trait GestionDocuments
         $documents = $request->file();
 
         if (Arr::accessible($documents) && Arr::exists($documents, 'documents')) {
-            $path = self::PATH_DOCUMENTS.$entity->id;
+            $path = self::PATH_DOCUMENTS . $entity->id;
             if (! Storage::exists($path)) {
                 Storage::makeDirectory($path);
             }
@@ -90,12 +96,13 @@ trait GestionDocuments
     /**
      * Renvoi la liste des noms des fichiers "non supprimés" contenues dans un répertoire
      *
+     * @param  mixed  $entity
      *
      * @return Collection<int, string>
      */
     private function listeNomDocuments(mixed $entity)
     {
-        $path_folder = self::PATH_DOCUMENTS.$entity->id;
+        $path_folder = self::PATH_DOCUMENTS . $entity->id;
 
         $liste_path_documents = collect(Storage::files($path_folder));
 

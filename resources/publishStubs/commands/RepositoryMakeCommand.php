@@ -50,24 +50,26 @@ class RepositoryMakeCommand extends GeneratorCommand
      * Resolve the fully-qualified path to the stub.
      *
      * @param  string  $stub
+     *
      * @return string
      */
     protected function resolveStubPath($stub)
     {
         return file_exists($customPath = $this->laravel->basePath(trim($stub, '/')))
             ? $customPath
-            : __DIR__.$stub;
+            : __DIR__ . $stub;
     }
 
     /**
      * Get the default namespace for the class.
      *
      * @param  string  $rootNamespace
+     *
      * @return string
      */
     protected function getDefaultNamespace($rootNamespace)
     {
-        return $rootNamespace.'\Http\Repositories';
+        return $rootNamespace . '\Http\Repositories';
     }
 
     /**
@@ -76,6 +78,7 @@ class RepositoryMakeCommand extends GeneratorCommand
      * Remove the base repository import if we are already in the base namespace.
      *
      * @param  string  $name
+     *
      * @return string
      */
     protected function buildClass($name)
@@ -102,6 +105,7 @@ class RepositoryMakeCommand extends GeneratorCommand
      * Build the model replacement values.
      *
      * @param  array<string>  $replace
+     *
      * @return array<string>
      */
     protected function buildModelReplacements(array $replace)
@@ -131,6 +135,7 @@ class RepositoryMakeCommand extends GeneratorCommand
      * Get the fully-qualified model class name.
      *
      * @param  string  $model
+     *
      * @return string
      *
      * @throws \InvalidArgumentException
