@@ -20,6 +20,7 @@ use Wiklog\StarterKit\Commands\PublishController;
 use Wiklog\StarterKit\Commands\PublishExtendBlueprint;
 use Wiklog\StarterKit\Commands\PublishGit;
 use Wiklog\StarterKit\Commands\PublishLibrairiesMigration;
+use Wiklog\StarterKit\Commands\PublishResourcesJs;
 
 class StarterKitServiceProvider extends PackageServiceProvider
 {
@@ -47,6 +48,7 @@ class StarterKitServiceProvider extends PackageServiceProvider
             ->hasCommand(PublishLarastan::class)
             ->hasCommand(PublishLibrairiesMigration::class)
             ->hasCommand(PublishPdfMulticell::class)
+            ->hasCommand(PublishResourcesJs::class)
             ->hasCommand(PublishStubs::class)
             ->hasCommand(PublishTraits::class)
             ->hasCommand(PublishWebfonts::class);
