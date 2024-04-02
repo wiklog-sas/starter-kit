@@ -27,6 +27,7 @@ class PublishPint extends Command
     {
         $file_system = new Filesystem();
 
+        $this->info('Installation de laravel/pint');
         $this->composer->requirePackages(['laravel/pint'], true);
 
         // Publication du fichier de configuration
