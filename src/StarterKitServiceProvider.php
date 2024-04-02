@@ -3,20 +3,21 @@
 namespace Wiklog\StarterKit;
 
 use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Wiklog\StarterKit\Commands\PublishCommonJs;
-use Wiklog\StarterKit\Commands\PublishComponents;
+use Wiklog\StarterKit\Commands\PublishAuth;
 use Wiklog\StarterKit\Commands\PublishDump;
-use Wiklog\StarterKit\Commands\PublishExtendBlueprint;
-use Wiklog\StarterKit\Commands\PublishHelpers;
-use Wiklog\StarterKit\Commands\PublishIdeHelper;
-use Wiklog\StarterKit\Commands\PublishInsights;
-use Wiklog\StarterKit\Commands\PublishLarastan;
-use Wiklog\StarterKit\Commands\PublishLibrairiesMigration;
-use Wiklog\StarterKit\Commands\PublishPdfMulticell;
 use Wiklog\StarterKit\Commands\PublishStubs;
 use Wiklog\StarterKit\Commands\PublishTraits;
+use Wiklog\StarterKit\Commands\PublishHelpers;
+use Wiklog\StarterKit\Commands\PublishCommonJs;
+use Wiklog\StarterKit\Commands\PublishInsights;
+use Wiklog\StarterKit\Commands\PublishLarastan;
 use Wiklog\StarterKit\Commands\PublishWebfonts;
+use Wiklog\StarterKit\Commands\PublishIdeHelper;
+use Wiklog\StarterKit\Commands\PublishComponents;
+use Wiklog\StarterKit\Commands\PublishPdfMulticell;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Wiklog\StarterKit\Commands\PublishExtendBlueprint;
+use Wiklog\StarterKit\Commands\PublishLibrairiesMigration;
 
 class StarterKitServiceProvider extends PackageServiceProvider
 {
@@ -31,6 +32,7 @@ class StarterKitServiceProvider extends PackageServiceProvider
             ->name('starter-kit')
             // ->hasConfigFile('starter-kit')
             // ->hasMigration('create_starter-kit_table')
+            ->hasCommand(PublishAuth::class)
             ->hasCommand(PublishCommonJs::class)
             ->hasCommand(PublishComponents::class)
             ->hasCommand(PublishDump::class)
