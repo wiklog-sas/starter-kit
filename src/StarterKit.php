@@ -43,6 +43,8 @@ class StarterKit
 
     public const PATH_PUBLISH_PDF_MULTICELL = self::PATH_RESOURCES.'publishPdfMulticell/';
 
+    public const PATH_PUBLISH_PHP_UNIT= self::PATH_RESOURCES.'publishPhpUnit/';
+
     public const PATH_PUBLISH_PINT = self::PATH_RESOURCES.'publishPint/';
 
     public const PATH_PUBLISH_RESOURCES_JS = self::PATH_RESOURCES.'publishResourcesJs/';
