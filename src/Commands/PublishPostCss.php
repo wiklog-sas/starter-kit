@@ -28,7 +28,7 @@ class PublishPostCss extends Command
         $file_system = new Filesystem();
 
         // Publication du postcss.config.cjs
-        $this->comment('Publication du fichier laravel.yml');
+        $this->comment('Publication du fichier postcss.config.cjs');
         if ($file_system->exists(base_path('postcss.config.js'))) {
             $file_origin = base_path('postcss.config.js');
             $new_name = base_path('postcss.config.cjs');
