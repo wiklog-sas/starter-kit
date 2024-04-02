@@ -25,6 +25,8 @@ class StarterKit
 
     public const PATH_PUBLISH_CONTROLLER = self::PATH_RESOURCES.'publishController/';
 
+    public const PATH_PUBLISH_CRUD_TEMPLATE = self::PATH_RESOURCES.'publishCrudTemplate/';
+
     public const PATH_PUBLISH_DUMP = self::PATH_RESOURCES.'publishDump/';
 
     public const PATH_PUBLISH_EDITOR_CONFIG = self::PATH_RESOURCES.'publishEditorConfig/';
