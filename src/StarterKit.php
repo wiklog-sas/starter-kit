@@ -47,6 +47,8 @@ class StarterKit
 
     public const PATH_PUBLISH_PINT = self::PATH_RESOURCES.'publishPint/';
 
+    public const PATH_PUBLISH_README = self::PATH_RESOURCES.'publishReadme/';
+
     public const PATH_PUBLISH_RESOURCES_JS = self::PATH_RESOURCES.'publishResourcesJs/';
 
     public const PATH_PUBLISH_RESOURCES_SCSS = self::PATH_RESOURCES.'publishResourcesScss/';
