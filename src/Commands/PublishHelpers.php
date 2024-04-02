@@ -51,6 +51,8 @@ class PublishHelpers extends Command
 
         if (! isset($composer_config['autoload-dev'])) {
             $composer_config['autoload-dev'] = ['files' => []];
+        } elseif (!isset($composer_config['autoload-dev']['files'])) {
+            $composer_config['autoload-dev']['files'] = [];
         }
 
         if (! in_array($autoload_path, $composer_config['autoload-dev']['files'])) {
