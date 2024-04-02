@@ -32,6 +32,35 @@ window.DataTable = DataTable;
 window.JSZip = jszip;
 window.pdfMake = pdfmake;
 
+// jqueryui
+import 'jqueryui';
+
+// Leaflet
+import leaflet from 'leaflet';
+window.L = leaflet;
+
+// Dropzone
+import Dropzone from 'dropzone';
+window.Dropzone = Dropzone;
+
+// Select2
+import * as select2 from 'select2';
+window.Select2 = select2;
+import 'select2/dist/js/i18n/fr'; // il faut aussi préciser la langue dans déclaration du select
+
+// CKEditor 
+import ckeditor5 from '@ckeditor/ckeditor5-build-classic';
+window.CKEditor = ckeditor5;
+import '@ckeditor/ckeditor5-build-classic/build/translations/fr'; // il faut aussi préciser la langue dans déclaration du ckeditor
+
+// Bootstrap-datepicker
+import * as datepicker from 'bootstrap-datepicker';
+window.datepicker = datepicker;
+
+// Bootstrap-select                                 // INCOMPATIBLE AVEC VITE
+// import 'bootstrap-select/js/bootstrap-select';
+// $.fn.selectpicker.Constructor.BootstrapVersion = '5';
+
 import Alpine from 'alpinejs';
 
 window.Alpine = Alpine;
