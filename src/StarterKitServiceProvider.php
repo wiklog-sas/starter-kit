@@ -28,6 +28,7 @@ use Wiklog\StarterKit\Commands\PublishEnv;
 use Wiklog\StarterKit\Commands\PublishExtendBlueprint;
 use Wiklog\StarterKit\Commands\PublishLibrairiesMigration;
 use Wiklog\StarterKit\Commands\PublishPhpUnit;
+use Wiklog\StarterKit\Commands\PublishPostCss;
 use Wiklog\StarterKit\Commands\PublishReadme;
 use Wiklog\StarterKit\Commands\PublishWorkflow;
 
@@ -62,6 +63,7 @@ class StarterKitServiceProvider extends PackageServiceProvider
             ->hasCommand(PublishPdfMulticell::class)
             ->hasCommand(PublishPhpUnit::class)
             ->hasCommand(PublishPint::class)
+            ->hasCommand(PublishPostCss::class)
             ->hasCommand(PublishReadme::class)
             ->hasCommand(PublishResourcesJs::class)
             ->hasCommand(PublishResourcesScss::class)
