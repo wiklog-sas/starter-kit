@@ -41,6 +41,18 @@ class PublishAuth extends Command
         $file_system->delete(resource_path('views/dashboard.blade.php'));
         $file_system->delete(base_path('tests/Feature/ProfileTest.php'));
         $file_system->delete(app_path('Http/Controller/ProfileController.php'));
+
+        // Fix tests
+        $this->info('Fix tests');
+        $file_origin = StarterKit::PATH_PUBLISH_AUTH . 'ExampleTest.php';
+        $destination = base_path('tests/Feature/ExampleTest.php');
+        $file_system->copy($file_origin, $destination);
+
+        // Fix auth.php
+        $this->info('Publication auth.php');
+        $file_origin = StarterKit::PATH_PUBLISH_AUTH . 'auth.php';
+        $destination = base_path('routes/auth.php');
+        $file_system->copy($file_origin, $destination);
         
         // Fix larastan
         $this->info('Fix larastan sur le fichier VerifyEmailController.php');
