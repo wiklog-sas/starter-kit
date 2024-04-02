@@ -33,7 +33,7 @@ class PublishBouncer extends Command
 
         // Publication du kernel
         $this->comment('Publication de la migration');
-        Artisan::call('php artisan vendor:publish --tag="bouncer.migrations"');
+        Artisan::call('vendor:publish --tag="bouncer.migrations"');
 
         // Publication de User
         $this->comment('Publication du model User.php');
@@ -41,7 +41,7 @@ class PublishBouncer extends Command
         $destination = app_path('Models/User.php');
         $file_system->copy($file_origin, $destination);
 
-        Artisan::call('php artisan migrate');
+        Artisan::call('migrate');
 
         $this->comment('Installation de Bouncer et publication de la migration réussis !');
 

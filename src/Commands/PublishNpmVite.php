@@ -29,7 +29,9 @@ class PublishNpmVite extends Command
         $file_system = new Filesystem();
 
         $this->comment('Installation de npm');
-        Artisan::call('npm:install');
+        shell_exec('npm:install');
+        
+        
 
         // Publication du fichier packages.json et package-lock.json
         $this->comment('Publication du fichier packages.json et package-lock.json');
@@ -44,7 +46,7 @@ class PublishNpmVite extends Command
         $destination = base_path('vite.config.js');
         $file_system->copyDirectory($file_origin, $destination);
 
-        Artisan::call('npm run build');
+        shell_exec('npm run build');
 
         return self::SUCCESS;
     }
