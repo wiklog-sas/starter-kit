@@ -5,7 +5,7 @@
       <span class="d-none d-sm-inline h5">{{ __('Menu') }}</span>
     </a>
     <span class="d-flex-block m-auto h6">
-      Portail des associations
+      Titre Laravel Template
     </span>
     <ul class="d-flex align-items-center list-unstyled mb-0">
 
