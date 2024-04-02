@@ -4,6 +4,8 @@ if (! function_exists('cdnCss')) { // @codeCoverageIgnore
     /**
      * Génère le code HTML nécessaire pour la librairie CSS souhaitée
      *
+     * @param  string  $name
+     * @param  string|null  $version
      *
      * @return string|null
      *
@@ -26,6 +28,8 @@ if (! function_exists('cdnJs')) { // @codeCoverageIgnore
     /**
      * Génère le code HTML nécessaire pour la librairie JS souhaitée
      *
+     * @param  string  $name
+     * @param  string|null  $version
      *
      * @return string|null
      *
@@ -48,6 +52,12 @@ if (! function_exists('cdn')) { // @codeCoverageIgnore
     /**
      * Génère le code HTML nécessaire pour la librairie souhaitée (CSS et JS)
      *
+     * @param  string  $name
+     * @param  string|null  $version
+     * @param  bool  $integrity
+     * @param  bool  $crossorigin
+     * @param  bool  $onlyJs
+     * @param  bool  $onlyCss
      *
      * @return string|null
      *
@@ -56,7 +66,7 @@ if (! function_exists('cdn')) { // @codeCoverageIgnore
     function cdn(string $name, ?string $version = null, bool $integrity = true, bool $crossorigin = true, bool $onlyJs = false, bool $onlyCss = false)
     {
         if ($version === null) {
-            $version = Cache::remember('lastVersionOf'.$name, 60 * 60 * 24, function () use ($name) {
+            $version = Cache::remember('lastVersionOf' . $name, 60 * 60 * 24, function () use ($name) {
                 return DB::table('librairies')                                                                      // @phpstan-ignore-line
                     ->where('name', $name)
                     ->orderBy(DB::raw("inet_aton(substring_index(concat(version,'.0.0.0'),'.',4))"), 'desc')        // @phpstan-ignore-line
@@ -65,25 +75,25 @@ if (! function_exists('cdn')) { // @codeCoverageIgnore
             });
         }
 
-        $librairies = Cache::remember($name.$version, 60 * 60 * 24, function () use ($name, $version) {
+        $librairies = Cache::remember($name . $version, 60 * 60 * 24, function () use ($name, $version) {
             return DB::table('librairies')->where('name', $name)->where('version', $version)->get();
         });
 
         if ($librairies->count() === 0) {
-            throw new Exception('Librairie ['.$name.'] non trouvée', 1);
+            throw new Exception('Librairie [' . $name . '] non trouvée', 1);
         }
 
         $return = null;
         foreach ($librairies as $librairie) {
             if ($librairie->type === 'js' && ! $onlyCss) {
-                $return .= '<script src="'.$librairie->link.'" ';
-                $return .= $integrity ? 'integrity="'.$librairie->integrity.'" ' : '';
-                $return .= $crossorigin ? 'crossorigin="'.$librairie->crossorigin.'" ' : '';
+                $return .= '<script src="' . $librairie->link . '" ';
+                $return .= $integrity ? 'integrity="' . $librairie->integrity . '" ' : '';
+                $return .= $crossorigin ? 'crossorigin="' . $librairie->crossorigin . '" ' : '';
                 $return .= ' referrerpolicy="no-referrer" defer type="module"></script>';
             } elseif ($librairie->type === 'css' && ! $onlyJs) {
-                $return .= '<link rel="stylesheet" href="'.$librairie->link.'" ';
-                $return .= $integrity ? 'integrity="'.$librairie->integrity.'" ' : '';
-                $return .= $crossorigin ? 'crossorigin="'.$librairie->crossorigin.'" ' : '';
+                $return .= '<link rel="stylesheet" href="' . $librairie->link . '" ';
+                $return .= $integrity ? 'integrity="' . $librairie->integrity . '" ' : '';
+                $return .= $crossorigin ? 'crossorigin="' . $librairie->crossorigin . '" ' : '';
                 $return .= '/>';
             }
         }
@@ -96,12 +106,13 @@ if (! function_exists('secureEncode64')) { // @codeCoverageIgnore
     /**
      * Génère une clef encodée base 64 avec un sel associé à la clef de l'application
      *
+     * @param  string  $data
      *
      * @return string
      */
     function secureEncode64(string $data)
     {
-        return base64_encode($data.env('APP_KEY'));
+        return base64_encode($data . env('APP_KEY'));
     }
 }
 
@@ -109,6 +120,9 @@ if (! function_exists('format_currency')) { // @codeCoverageIgnore
     /**
      * Renvoie la valeur formatée avec les paramètres souhaités
      *
+     * @param  float  $value
+     * @param  string  $currency
+     * @param  string  $locale
      *
      * @return string|false
      */
@@ -125,6 +139,11 @@ if (! function_exists('format_number')) { // @codeCoverageIgnore
      * Renvoie la valeur formatée avec les paramètres souhaités
      *
      * @param  mixed  $value
+     * @param  int  $mode
+     * @param  string  $locale
+     * @param  string  $pattern
+     *
+     * @return string
      */
     function format_number($value, int $mode = NumberFormatter::DECIMAL_ALWAYS_SHOWN, string $locale = 'fr_FR', string $pattern = '#,##0.00'): string
     {
@@ -144,6 +163,7 @@ if (! function_exists('format_date')) { // @codeCoverageIgnore
      *
      * @param  ?string  $date  Date qui sera parsée
      * @param  string  $format  Format de sortie, par défaut DD/MM/YYYY
+     *
      * @return ?string Date au $format
      */
     function format_date(?string $date, string $format = 'DD/MM/YYYY', ?string $timezone = null): ?string
@@ -182,7 +202,7 @@ if (! function_exists('format_siret')) { // @codeCoverageIgnore
         }
 
         // NB : ce n'est pas un espace mais un blanc non sécable
-        return chunk_split(substr($value, 0, 9), 3, ' ').substr($value, -5);
+        return chunk_split(substr($value, 0, 9), 3, ' ') . substr($value, -5);
     }
 }
 
@@ -191,6 +211,7 @@ if (! function_exists('format_date_FrToEng')) { // @codeCoverageIgnore
      * Renvoie une date au format anglais à partir d'une date au format français
      *
      * @param  ?string  $date  Date au format JJ/MM/AAAA soit d/m/Y
+     *
      * @return ?string Date au format AAAA-MM-JJ soit Y-m-d
      */
     function format_date_FrToEng(?string $date): ?string
@@ -207,9 +228,13 @@ if (! function_exists('dateDiff')) { // @codeCoverageIgnore
     /**
      * Revoie le nombre de jours entre 2 dates
      *
+     * @param  string  $start_date
+     * @param  string  $end_date
      * @param  bool  $include
      *
      * @see https://stackoverflow.com/questions/2040560/finding-the-number-of-days-between-two-dates
+     *
+     * @return int
      */
     function nbDaysBetween(string $start_date, string $end_date, $include = false): int
     {
@@ -232,7 +257,7 @@ if (! function_exists('sizeFileReadable')) { // @codeCoverageIgnore
     {
         $i = floor(log($bytes, 1024));
 
-        return (string) round($bytes / pow(1024, $i), [0, 0, 2, 2, 3][$i]).['B', 'kB', 'MB', 'GB', 'TB'][$i];
+        return (string) round($bytes / pow(1024, $i), [0, 0, 2, 2, 3][$i]) . ['B', 'kB', 'MB', 'GB', 'TB'][$i];
     }
 }
 
@@ -241,6 +266,7 @@ if (! function_exists('sanitizeFloat')) { // @codeCoverageIgnore
      * Renvoie une valeur numérique brute sans caractères de mises en forme
      *
      * @param  string|null  $input  Entrant dont il faut supprimer les décorations
+     *
      * @return float Revoie la valeur sans décoration ou 0 si la valeur vaut null
      *
      * @see https://www.php.net/manual/fr/function.floatval.php#114486
@@ -260,7 +286,7 @@ if (! function_exists('sanitizeFloat')) { // @codeCoverageIgnore
         }
 
         return floatval(
-            preg_replace('/[^0-9\-]/', '', substr($input, 0, $sep)).'.'.
+            preg_replace('/[^0-9\-]/', '', substr($input, 0, $sep)) . '.' .
                 preg_replace('/[^0-9\-]/', '', substr($input, $sep + 1, strlen($input)))
         );
     }
@@ -269,6 +295,7 @@ if (! function_exists('sanitizeFloat')) { // @codeCoverageIgnore
 if (! function_exists('supprimer_decoration')) { // @codeCoverageIgnore
     /**
      * @param  string|null  $input  Entrant dont il faut supprimer les décorations
+     *
      * @return string Revoie la valeur sans décoration ou 0 si la valeur vaut null
      *
      * @see https://www.php.net/manual/fr/function.floatval.php#114486
@@ -288,7 +315,7 @@ if (! function_exists('supprimer_decoration')) { // @codeCoverageIgnore
         }
 
         return floatval(
-            preg_replace('/[^0-9\-]/', '', substr($input, 0, $sep)).'.'.
+            preg_replace('/[^0-9\-]/', '', substr($input, 0, $sep)) . '.' .
                 preg_replace('/[^0-9\-]/', '', substr($input, $sep + 1, strlen($input)))
         );
     }
@@ -297,6 +324,10 @@ if (! function_exists('supprimer_decoration')) { // @codeCoverageIgnore
 if (! function_exists('bool_val')) { // @codeCoverageIgnore
     /**
      * Renvoie un booléen en fonction du paramètre passé
+     *
+     * @param  mixed  $input
+     *
+     * @return bool
      */
     function bool_val(mixed $input): bool
     {
@@ -318,6 +349,8 @@ if (! function_exists('bool_val')) { // @codeCoverageIgnore
 
 if (! function_exists('version')) { // @codeCoverageIgnore
     /**
+     * @param  string  $prefix
+     *
      * @return string
      */
     function version(string $prefix = '')
@@ -330,11 +363,11 @@ if (! function_exists('version')) { // @codeCoverageIgnore
             if (count($tags) > 0) {
                 usort($tags, 'version_compare');
 
-                return $prefix.$tags[count($tags) - 1];
+                return $prefix . $tags[count($tags) - 1];
             }
         }
 
-        return $prefix.date('Y.m').'.0';
+        return $prefix . date('Y.m') . '.0';
     }
 }
 
@@ -345,6 +378,7 @@ if (! class_exists('BreadcrumbItem')) { // @codeCoverageIgnore
          * @param  string  $libelle  Libellé
          * @param  string  $lien  Lien associé, # par défaut
          * @param  bool  $isActive  Indique si le lien la page active, false par défaut
+         *
          * @return void
          */
         public function __construct(public string $libelle, public string $lien = '#', public bool $isActive = false)
