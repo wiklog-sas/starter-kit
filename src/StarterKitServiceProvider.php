@@ -27,6 +27,7 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Wiklog\StarterKit\Commands\PublishExtendBlueprint;
 use Wiklog\StarterKit\Commands\PublishLibrairiesMigration;
 use Wiklog\StarterKit\Commands\PublishPhpUnit;
+use Wiklog\StarterKit\Commands\PublishWorkflow;
 
 class StarterKitServiceProvider extends PackageServiceProvider
 {
@@ -63,7 +64,7 @@ class StarterKitServiceProvider extends PackageServiceProvider
             ->hasCommand(PublishResourcesViews::class)
             ->hasCommand(PublishStubs::class)
             ->hasCommand(PublishTraits::class)
-            ->hasCommand(PublishWebfonts::class);
-
+            ->hasCommand(PublishWebfonts::class)
+            ->hasCommand(PublishWorkflow::class);
     }
 }

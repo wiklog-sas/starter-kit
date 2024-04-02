@@ -58,4 +58,6 @@ class StarterKit
     public const PATH_PUBLISH_TRAITS = self::PATH_RESOURCES.'publishTraits/';
 
     public const PATH_PUBLISH_WEBFONTS = self::PATH_RESOURCES.'publishWebfonts/';
+
+    public const PATH_PUBLISH_WORKFLOW = self::PATH_RESOURCES.'publishWorkflow/';
 }
