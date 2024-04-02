@@ -34,7 +34,7 @@ class PublishLibrairiesMigration extends Command
         $destination = database_path('migrations/2024_01_23_112424_create_librairies_table.php');
         $file_system->copy($file_origin, $destination);
 
-        $this->comment('Publication de la migration réussi !');
+        $this->comment('Publication de la migration réussis !');
 
         return self::SUCCESS;
     }

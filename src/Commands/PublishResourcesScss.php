@@ -33,7 +33,7 @@ class PublishResourcesScss extends Command
         $destination = resource_path('scss');
         $file_system->copyDirectory($folder_origin, $destination);
 
-        $this->comment('Publication des resources scss réussi !');
+        $this->comment('Publication des resources scss réussis !');
 
         return self::SUCCESS;
     }

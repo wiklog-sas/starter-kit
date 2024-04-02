@@ -33,7 +33,7 @@ class PublishResourcesJs extends Command
         $destination = resource_path('js');
         $file_system->copyDirectory($folder_origin, $destination);
 
-        $this->comment('Publication des resources javascripts réussi !');
+        $this->comment('Publication des resources javascripts réussis !');
 
         return self::SUCCESS;
     }

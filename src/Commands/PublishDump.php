@@ -38,7 +38,7 @@ class PublishDump extends Command
         $destination = app_path('Console/Commands/DumpCommand.php');
         $file_system->copy($file_origin, $destination);
 
-        $this->comment('Publication réussi !');
+        $this->comment('Publication réussis !');
 
         return self::SUCCESS;
     }

@@ -30,7 +30,7 @@ class PublishIdeHelper extends Command
         // Installation ide helper
         $this->comment('Installation de ide helper');
         $this->composer->requirePackages(['barryvdh/laravel-ide-helper'], true);
-        $this->comment('Publication de ide helper réussi !');
+        $this->comment('Publication de ide helper réussis !');
 
         return self::SUCCESS;
     }

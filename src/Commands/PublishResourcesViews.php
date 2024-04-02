@@ -33,7 +33,7 @@ class PublishResourcesViews extends Command
         $destination = resource_path('views');
         $file_system->copyDirectory($folder_origin, $destination);
 
-        $this->comment('Publication des resources views réussi !');
+        $this->comment('Publication des resources views réussis !');
 
         return self::SUCCESS;
     }

@@ -35,7 +35,7 @@ class PublishPint extends Command
         $destination = base_path('pint.json');
         $file_system->copy($file_origin, $destination);
 
-        $this->comment('Installation et configuration de laravel/pint réussi !');
+        $this->comment('Installation et configuration de laravel/pint réussis !');
 
         return self::SUCCESS;
     }

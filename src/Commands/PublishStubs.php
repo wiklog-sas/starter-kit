@@ -45,7 +45,7 @@ class PublishStubs extends Command
         $destination = app_path('Console/Commands');
         $file_system->copyDirectory($folder_origin, $destination);
 
-        $this->comment('Publication réussi !');
+        $this->comment('Publication réussis !');
 
         return self::SUCCESS;
     }

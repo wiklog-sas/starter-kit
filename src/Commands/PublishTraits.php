@@ -33,7 +33,7 @@ class PublishTraits extends Command
         $destination = app_path('Traits');
         $file_system->copyDirectory($folder_origin, $destination);
 
-        $this->comment('Publication de traits réussi !');
+        $this->comment('Publication de traits réussis !');
 
         return self::SUCCESS;
     }

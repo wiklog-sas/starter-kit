@@ -37,7 +37,7 @@ class PublishLarastan extends Command
         
         $file_system->copy($file_origin, $destination);
 
-        $this->comment('Publication de larastan réussi !');
+        $this->comment('Publication de larastan réussis !');
 
         return self::SUCCESS;
     }

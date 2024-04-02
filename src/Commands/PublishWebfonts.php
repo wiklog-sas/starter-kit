@@ -33,7 +33,7 @@ class PublishWebfonts extends Command
         $destination = public_path('webfonts');
         $file_system->copyDirectory($folder_origin, $destination);
 
-        $this->comment('Publication des webfonts réussi !');
+        $this->comment('Publication des webfonts réussis !');
 
         return self::SUCCESS;
     }

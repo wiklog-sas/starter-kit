@@ -37,7 +37,7 @@ class PublishHelpers extends Command
         $this->comment('Regenerate the Composer autoloader files.');
         $this->composer->dumpAutoloads();
 
-        $this->comment('Publication du fichier helpers.php réussi !');
+        $this->comment('Publication du fichier helpers.php réussis !');
 
         return self::SUCCESS;
     }

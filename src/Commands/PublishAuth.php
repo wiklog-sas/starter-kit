@@ -70,7 +70,7 @@ class PublishAuth extends Command
         $this->info('Publication des fichiers blades pour l’authentification');
         $file_system->copyDirectory(StarterKit::PATH_PUBLISH_AUTH . 'auth', resource_path('views/auth'));
 
-        $this->info('Publication réussi !');
+        $this->info('Publication réussis !');
 
         return self::SUCCESS;
     }

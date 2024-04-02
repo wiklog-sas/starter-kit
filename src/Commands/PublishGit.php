@@ -33,7 +33,7 @@ class PublishGit extends Command
         $destination = base_path();
         $file_system->copyDirectory($file_origin, $destination);
 
-        $this->comment('Publication du fichier .gitignore et .gitattributes réussi !');
+        $this->comment('Publication du fichier .gitignore et .gitattributes réussis !');
 
         return self::SUCCESS;
     }

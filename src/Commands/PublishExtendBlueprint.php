@@ -32,7 +32,7 @@ class PublishExtendBlueprint extends Command
         $destination = app_path('Classes/Commun/ExtendBlueprint.php');
         $file_system->copy($file_origin, $destination);
 
-        $this->comment('Publication du fichier ExtendBlueprint.php réussi !');
+        $this->comment('Publication du fichier ExtendBlueprint.php réussis !');
 
         return self::SUCCESS;
     }

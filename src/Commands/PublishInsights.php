@@ -36,7 +36,7 @@ class PublishInsights extends Command
         $destination = config_path('insights.php');
         $file_system->copy($file_origin, $destination);
 
-        $this->comment('Publication de php insights réussi !');
+        $this->comment('Publication de php insights réussis !');
 
         return self::SUCCESS;
     }
