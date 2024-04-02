@@ -14,6 +14,7 @@ class ExtendBlueprint extends Blueprint
      * Création des colones pour horodater l'action et connaître le dernier user ayant opéré
      *
      * @param  bool  $useSoftDeletes  Indique si la suppression logique est activée, true par défaut
+     *
      * @return void
      */
     public function whoAndWhen(bool $useSoftDeletes = true)
