@@ -27,6 +27,8 @@ class StarterKit
 
     public const PATH_PUBLISH_EDITOR_CONFIG = self::PATH_RESOURCES.'publishEditorConfig/';
 
+    public const PATH_PUBLISH_ENV = self::PATH_RESOURCES.'publishEnv/';
+
     public const PATH_PUBLISH_EXTEND_BLUEPRINT = self::PATH_RESOURCES.'publishExtendBlueprint/';
 
     public const PATH_PUBLISH_GIT = self::PATH_RESOURCES.'publishGit/';
