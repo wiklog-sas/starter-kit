@@ -40,6 +40,7 @@ class PublishAuth extends Command
         $file_system->delete(resource_path('views/welcome.blade.php'));
         $file_system->delete(resource_path('views/dashboard.blade.php'));
         $file_system->delete(base_path('tests/Feature/ProfileTest.php'));
+        $file_system->delete(app_path('Http/Controller/ProfileController.php'));
         
         // Fix larastan
         $this->info('Fix larastan sur le fichier VerifyEmailController.php');

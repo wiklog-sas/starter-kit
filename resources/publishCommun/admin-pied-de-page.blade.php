@@ -46,7 +46,6 @@
 </script>
 
 @if (count($errors) > 0)
-  {!! cdnJs('jqueryv3') !!}
   <script type="module">
     @if (count($errors) > 1)
       var message = '{{ __(':count errors were detected', ['count' => count($errors)]) }}';
