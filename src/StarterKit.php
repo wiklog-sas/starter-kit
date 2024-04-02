@@ -21,6 +21,8 @@ class StarterKit
 
     public const PATH_PUBLISH_COMPONENTS = self::PATH_RESOURCES.'publishComponents/';
 
+    public const PATH_PUBLISH_CONTROLLER = self::PATH_RESOURCES.'publishController/';
+
     public const PATH_PUBLISH_DUMP = self::PATH_RESOURCES.'publishDump/';
 
     public const PATH_PUBLISH_EXTEND_BLUEPRINT = self::PATH_RESOURCES.'publishExtendBlueprint/';

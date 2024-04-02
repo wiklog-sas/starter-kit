@@ -16,6 +16,7 @@ use Wiklog\StarterKit\Commands\PublishIdeHelper;
 use Wiklog\StarterKit\Commands\PublishComponents;
 use Wiklog\StarterKit\Commands\PublishPdfMulticell;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Wiklog\StarterKit\Commands\PublishController;
 use Wiklog\StarterKit\Commands\PublishExtendBlueprint;
 use Wiklog\StarterKit\Commands\PublishGit;
 use Wiklog\StarterKit\Commands\PublishLibrairiesMigration;
@@ -36,6 +37,7 @@ class StarterKitServiceProvider extends PackageServiceProvider
             ->hasCommand(PublishAuth::class)
             ->hasCommand(PublishCommonJs::class)
             ->hasCommand(PublishComponents::class)
+            ->hasCommand(PublishController::class)
             ->hasCommand(PublishDump::class)
             ->hasCommand(PublishExtendBlueprint::class)
             ->hasCommand(PublishGit::class)
