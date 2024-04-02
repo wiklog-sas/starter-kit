@@ -22,7 +22,7 @@ class Fpdi extends PdfFpdi
         $this->SetXY(180, 272);
         $this->SetFont('Helvetica', '', 9);
         $this->SetTextColor(30, 30, 30);
-        $this->Cell(0, 10, 'Page '.$this->PageNo().' / {nbPages}');
+        $this->Cell(0, 10, 'Page ' . $this->PageNo() . ' / {nbPages}');
     }
 
     /**
@@ -35,6 +35,8 @@ class Fpdi extends PdfFpdi
      * @param  mixed  $txt
      * @param  mixed  $border
      * @param  string  $align
+     *
+     * @return float
      */
     public function GetMultiCellHeight($w, $h, $txt, $border = null, $align = 'J'): float
     {
@@ -118,7 +120,6 @@ class Fpdi extends PdfFpdi
             $this->ws = 0;
             $this->_out('0 Tw');
         }
-
         //Increase Height
         return floatval($height + $h);
     }

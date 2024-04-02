@@ -22,8 +22,9 @@ class PDFMulticellTableau extends FPDF
 
     /**
      * Liste des largeurs des colonnes des tableaux
+     * 
+     * @param  array<int>  $w liste des largeurs des colonnes
      *
-     * @param  array<int>  $w  liste des largeurs des colonnes
      * @return void
      */
     public function SetWidths($w)
@@ -34,6 +35,7 @@ class PDFMulticellTableau extends FPDF
 
     /**
      * @param  array  $a
+     *
      * @return void
      */
     public function SetAligns($a)
@@ -45,7 +47,8 @@ class PDFMulticellTableau extends FPDF
     /**
      * Ajouter une ligne au tableau
      *
-     * @param  array<string|int>  $data  liste des données de la ligne à ajouter
+     * @param  array<string|int>  $data liste des données de la ligne à ajouter
+     *
      * @return void
      */
     public function Row($data)
@@ -77,7 +80,8 @@ class PDFMulticellTableau extends FPDF
     }
 
     /**
-     * @param  int  $h  hauteur
+     * @param  int  $h hauteur
+     *
      * @return void
      */
     public function CheckPageBreak($h)
@@ -91,8 +95,9 @@ class PDFMulticellTableau extends FPDF
     /**
      * Retourne le nombre de ligne que va prendre une multicell en fonction du texte contenu
      *
-     * @param  int  $w  largeur
-     * @param  string|int  $txt  contenu de la cellule
+     * @param  int  $w largeur
+     * @param  string|int  $txt contenu de la cellule
+     *
      * @return int $nl nombre de ligne que va prendre la cellule
      */
     public function NbLines($w, $txt)
