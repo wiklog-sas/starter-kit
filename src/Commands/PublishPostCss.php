@@ -32,7 +32,7 @@ class PublishPostCss extends Command
         if ($file_system->exists(base_path('postcss.config.js'))) {
             $file_origin = base_path('postcss.config.js');
             $new_name = base_path('postcss.config.cjs');
-            $file_system->rename($file_origin, $new_name);
+            $file_system->move($file_origin, $new_name);
         } else {
             $this->warn('Le fichier postcss.config.js n’existe pas, création du fichier postcss.config.cjs');
 
