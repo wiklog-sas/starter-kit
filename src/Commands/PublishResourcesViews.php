@@ -29,9 +29,15 @@ class PublishResourcesViews extends Command
 
         // Publication des resources views
         $this->comment('Publications des resources views');
-        $folder_origin = StarterKit::PATH_PUBLISH_RESOURCES_VIEWS;
+        $folder_origin = StarterKit::PATH_PUBLISH_RESOURCES_VIEWS . 'views';
         $destination = resource_path('views');
         $file_system->copyDirectory($folder_origin, $destination);
+
+        // Publication de accueil controller
+        $this->comment('Publications du controller d’accueil');
+        $file_origin = StarterKit::PATH_PUBLISH_RESOURCES_VIEWS . 'AccueilController.php';
+        $destination = app_path('Http/Controllers/AccueilController.php');
+        $file_system->copy($file_origin, $destination);
 
         $this->comment('Publication des resources views réussis !');
 

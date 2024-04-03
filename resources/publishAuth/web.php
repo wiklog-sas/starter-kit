@@ -16,11 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Accueil
-// Route::get('/', [AccueilController::class, 'index'])->name('accueil');
+Route::get('/', [AccueilController::class, 'index'])->name('accueil');
 
 // // Livre
-// Route::get('livre/json', [LivreController::class, 'json'])->name('livre.json');
-// Route::get('livre/{livre}/undelete', [LivreController::class, 'undelete'])->withTrashed()->name('livre.undelete');
-// Route::resource('livre', LivreController::class);
+Route::get('livre/json', [LivreController::class, 'json'])->name('livre.json');
+Route::get('livre/{livre}/undelete', [LivreController::class, 'undelete'])->withTrashed()->name('livre.undelete');
+Route::resource('livre', LivreController::class);
 
 require __DIR__.'/auth.php';
