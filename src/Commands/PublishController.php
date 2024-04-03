@@ -30,7 +30,7 @@ class PublishController extends Command
         // Publication du controller
         $this->comment('Publications du controller');
         $file_origin = StarterKit::PATH_PUBLISH_CONTROLLER . 'Controller.php';
-        $destination = app_path('Http/Controller/Controller.php');
+        $destination = app_path('Http/Controllers/Controller.php');
         $file_system->copy($file_origin, $destination);
 
         $this->comment('Controlleur publié !');
