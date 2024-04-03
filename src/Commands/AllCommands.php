@@ -27,8 +27,10 @@ class AllCommands extends Command
     public function handle(): int
     {
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'env');
+        Artisan::call(StarterKit::PREFIX_SIGNATURE.'postcss');
+        Artisan::call(StarterKit::PREFIX_SIGNATURE.'npmVite');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'traits');
-        // Artisan::call(StarterKit::PREFIX_SIGNATURE.'auth');  // npm not works
+        Artisan::call(StarterKit::PREFIX_SIGNATURE.'auth');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'bouncer');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'commun');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'components');
@@ -44,11 +46,9 @@ class AllCommands extends Command
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'kernel');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'larastan');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'librairies');
-        Artisan::call(StarterKit::PREFIX_SIGNATURE.'npmVite');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'pdfMulticell');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'phpunit');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'pint');
-        Artisan::call(StarterKit::PREFIX_SIGNATURE.'postcss');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'readme');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'resourcesJs');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'resourcesScss');
