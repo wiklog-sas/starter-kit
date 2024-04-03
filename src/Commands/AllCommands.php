@@ -116,7 +116,7 @@ class AllCommands extends Command
         $this->info('Publication du fichier de configuration pour le workflow de GitHub Action');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'workflow');
 
-        $this->warn('Pulication réussis !');
+        $this->warn('Publication réussis !');
 
         return self::SUCCESS;
     }
