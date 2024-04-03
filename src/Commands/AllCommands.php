@@ -28,6 +28,9 @@ class AllCommands extends Command
     {
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'env');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'postcss');
+        Artisan::call(StarterKit::PREFIX_SIGNATURE.'resourcesJs');
+        Artisan::call(StarterKit::PREFIX_SIGNATURE.'resourcesScss');
+        Artisan::call(StarterKit::PREFIX_SIGNATURE.'resourcesViews');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'npmVite');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'traits');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'auth');
@@ -50,9 +53,6 @@ class AllCommands extends Command
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'phpunit');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'pint');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'readme');
-        Artisan::call(StarterKit::PREFIX_SIGNATURE.'resourcesJs');
-        Artisan::call(StarterKit::PREFIX_SIGNATURE.'resourcesScss');
-        Artisan::call(StarterKit::PREFIX_SIGNATURE.'resourcesViews');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'stubs');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'webfonts');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'workflow');
