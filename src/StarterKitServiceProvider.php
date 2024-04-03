@@ -51,6 +51,7 @@ class StarterKitServiceProvider extends PackageServiceProvider
             // ->hasMigration('create_starter-kit_table')
             ->hasCommand(AllCommands::class)
             ->hasCommand(PublishAuth::class)
+            ->hasCommand(PublishTraits::class)
             ->hasCommand(PublishBouncer::class)
             ->hasCommand(PublishCommonJs::class)
             ->hasCommand(PublishComponents::class)
@@ -77,7 +78,6 @@ class StarterKitServiceProvider extends PackageServiceProvider
             ->hasCommand(PublishResourcesScss::class)
             ->hasCommand(PublishResourcesViews::class)
             ->hasCommand(PublishStubs::class)
-            ->hasCommand(PublishTraits::class)
             ->hasCommand(PublishWebfonts::class)
             ->hasCommand(PublishWorkflow::class);
     }
