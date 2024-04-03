@@ -41,6 +41,7 @@ class PublishNpmVite extends Command
         $destination = base_path('vite.config.js');
         $file_system->copy($file_origin, $destination);
 
+        shell_exec('npm install');
         shell_exec('npm run build');
 
         return self::SUCCESS;
