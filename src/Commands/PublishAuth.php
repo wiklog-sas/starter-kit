@@ -31,6 +31,7 @@ class PublishAuth extends Command
         // Installation de laravel Breeze
         $this->info('Installation de laravel Breeze');
         $this->composer->requirePackages(['laravel/breeze'], true);
+        $this->composer->dumpOptimized();
         $this->info('Installation du stack blade');
         Artisan::call('breeze:install blade');
 
