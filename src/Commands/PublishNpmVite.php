@@ -35,7 +35,7 @@ class PublishNpmVite extends Command
 
         // Publication du fichier packages.json et package-lock.json
         $this->comment('Publication du fichier packages.json et package-lock.json');
-        $file_origin = StarterKit::PATH_PUBLISH_WORKFLOW . 'packages';
+        $file_origin = StarterKit::PATH_PUBLISH_NPM_VITE . 'packages';
         $destination = base_path();
         $file_system->copyDirectory($file_origin, $destination);
 
