@@ -40,30 +40,30 @@ class PublishCrudTemplate extends Command
         $file_system->copy($file_origin, $destination);
 
         // Publication du controller
-        $this->comment('Publication du model');
+        $this->comment('Publication du controller');
         $file_origin = StarterKit::PATH_PUBLISH_CRUD_TEMPLATE. 'LivreController.php';
-        $file_system->makeDirectory(app_path('Http/Controllers/Livre'));
+        $file_system->makeDirectory(app_path('Http/Controllers/Livre'), recursive: true);
         $destination = app_path('Http/Controllers/Livre/LivreController.php');
         $file_system->copy($file_origin, $destination);
 
         // Publication du modelRequest
         $this->comment('Publication du modelRequest');
         $file_origin = StarterKit::PATH_PUBLISH_CRUD_TEMPLATE. 'LivreModelRequest.php';
-        $file_system->makeDirectory(app_path('Http/Requests/Livre'));
+        $file_system->makeDirectory(app_path('Http/Requests/Livre'), recursive: true);
         $destination = app_path('Http/Requests/Livre/LivreModelRequest.php');
         $file_system->copy($file_origin, $destination);
 
         // Publication du service
         $this->comment('Publication du service');
         $file_origin = StarterKit::PATH_PUBLISH_CRUD_TEMPLATE. 'LivreService.php';
-        $file_system->makeDirectory(app_path('Http/Services/Livre'));
+        $file_system->makeDirectory(app_path('Http/Services/Livre'), recursive: true);
         $destination = app_path('Http/Services/Livre/LivreService.php');
         $file_system->copy($file_origin, $destination);
 
         // Publication du repository
         $this->comment('Publication du repository');
         $file_origin = StarterKit::PATH_PUBLISH_CRUD_TEMPLATE. 'LivreRepository.php';
-        $file_system->makeDirectory(app_path('Http/Repositories/Livre'));
+        $file_system->makeDirectory(app_path('Http/Repositories/Livre'), recursive: true);
         $destination = app_path('Http/Repositories/Livre/LivreRepository.php');
         $file_system->copy($file_origin, $destination);
 
@@ -82,7 +82,7 @@ class PublishCrudTemplate extends Command
         // Publication du test
         $this->comment('Publication du test');
         $file_origin = StarterKit::PATH_PUBLISH_CRUD_TEMPLATE. 'LivreTest.php';
-        $file_system->makeDirectory(base_path('tests/Feature/Models'));
+        $file_system->makeDirectory(base_path('tests/Feature/Models'), recursive: true);
         $destination = base_path('tests/Feature/Models/LivreTest.php');
         $file_system->copy($file_origin, $destination);
 
@@ -91,7 +91,7 @@ class PublishCrudTemplate extends Command
         $folder_origin = StarterKit::PATH_PUBLISH_CRUD_TEMPLATE. 'views';
         
         $destination = resource_path('views/livre');
-        $file_system->makeDirectory(resource_path('views/livre'));
+        $file_system->makeDirectory(resource_path('views/livre'), recursive: true);
         $file_system->copyDirectory($folder_origin, $destination);
 
         return self::SUCCESS;
