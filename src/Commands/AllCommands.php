@@ -26,6 +26,7 @@ class AllCommands extends Command
 
     public function handle(): int
     {
+        Artisan::call(StarterKit::PREFIX_SIGNATURE.'traits');
         // Artisan::call(StarterKit::PREFIX_SIGNATURE.'auth');  // npm not works
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'bouncer');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'commun');
@@ -53,7 +54,6 @@ class AllCommands extends Command
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'resourcesScss');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'resourcesViews');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'stubs');
-        Artisan::call(StarterKit::PREFIX_SIGNATURE.'traits');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'webfonts');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'workflow');
 
