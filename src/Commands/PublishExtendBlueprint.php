@@ -30,10 +30,25 @@ class PublishExtendBlueprint extends Command
         // Publication du fichier ExtendBlueprint.php
         $file_origin = StarterKit::PATH_PUBLISH_EXTEND_BLUEPRINT.'ExtendBlueprint.php';
         $destination = app_path('Classes/Commun/ExtendBlueprint.php');
+        $this->createDirIfNotExists(app_path('Classes/Commun'));
         $file_system->copy($file_origin, $destination);
 
         $this->comment('Publication du fichier ExtendBlueprint.php réussis !');
 
         return self::SUCCESS;
+    }
+
+    /**
+     * Créer un dossier s'il n'existe pas
+     *
+     * @param  string  $path
+     * @return void
+     */
+    public function createDirIfNotExists(string $path): void
+    {
+        $file_system = new Filesystem();
+        if (! $file_system->exists($path)) {
+            $file_system->makeDirectory($path, recursive: true);
+        }
     }
 }
