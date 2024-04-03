@@ -29,11 +29,11 @@ class PublishReadme extends Command
 
         // Publication du fichuer README.md        
         $this->comment('Publication du fichier README.md');
-        $file_origin = StarterKit::PATH_PUBLISH_README . 'laravel.yml';
-        $destination = base_path('.github/workflows/laravel.yml');
+        $file_origin = StarterKit::PATH_PUBLISH_README . 'README.md';
+        $destination = base_path('README.md');
         $file_system->copy($file_origin, $destination);
 
-        $this->comment('Publication du fichier laravel.yml réussis !');
+        $this->comment('Publication du fichier README.md réussis !');
 
         return self::SUCCESS;
     }
