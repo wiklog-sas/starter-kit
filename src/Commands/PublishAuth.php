@@ -40,7 +40,7 @@ class PublishAuth extends Command
         $file_system->delete(resource_path('views/welcome.blade.php'));
         $file_system->delete(resource_path('views/dashboard.blade.php'));
         $file_system->delete(base_path('tests/Feature/ProfileTest.php'));
-        $file_system->delete(app_path('Http/Controller/ProfileController.php'));
+        $file_system->delete(app_path('Http/Controllers/ProfileController.php'));
 
         // Fix tests
         $this->info('Fix tests');
