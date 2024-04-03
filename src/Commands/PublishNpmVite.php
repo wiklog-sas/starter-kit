@@ -28,13 +28,13 @@ class PublishNpmVite extends Command
     {
         $file_system = new Filesystem();     
 
-        // Publication du fichier packages.json et package-lock.json
-        $this->comment('Publication du fichier packages.json et package-lock.json');
+        // Publication du fichier packages.json
+        $this->comment('Publication du fichier packages.json');
         $file_origin = StarterKit::PATH_PUBLISH_NPM_VITE . 'packages';
         $destination = base_path();
         $file_system->copyDirectory($file_origin, $destination);
 
-        $this->comment('Publication du fichier packages.json et package-lock.json réussis !');
+        $this->comment('Publication du fichier packages.json réussis !');
 
         $this->comment('Publication du fichier vite.config.js');
         $file_origin = StarterKit::PATH_PUBLISH_NPM_VITE . 'vite/vite.config.js';
