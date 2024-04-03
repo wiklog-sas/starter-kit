@@ -29,10 +29,10 @@ class PublishAuth extends Command
         $file_system = new Filesystem();
 
         // Installation de laravel Breeze
-        $this->info('Installation de laravel Breeze');
-        $this->composer->requirePackages(['laravel/breeze'], true);
-        $this->info('Installation du stack blade');
-        Artisan::call('breeze:install blade');
+        // $this->info('Installation de laravel Breeze');       // npm not works
+        // $this->composer->requirePackages(['laravel/breeze'], true);
+        // $this->info('Installation du stack blade');
+        // Artisan::call('breeze:install blade');
 
         // Suppression fichier inutile
         $this->info('Suppression de fichiers inutiles');
