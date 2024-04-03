@@ -33,7 +33,7 @@ class PublishAuth extends Command
         $this->composer->requirePackages(['laravel/breeze'], true);
         $this->composer->dumpOptimized();
         $this->info('Installation du stack blade');
-        Artisan::call('breeze:install blade');
+        shell_exec('php artisan breeze:install blade');
 
         // Suppression fichier inutile
         $this->info('Suppression de fichiers inutiles');
