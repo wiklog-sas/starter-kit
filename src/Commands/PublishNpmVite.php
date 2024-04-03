@@ -26,12 +26,7 @@ class PublishNpmVite extends Command
 
     public function handle(): int
     {
-        $file_system = new Filesystem();
-
-        $this->comment('Installation de npm');
-        shell_exec('npm:install');
-        
-        
+        $file_system = new Filesystem();     
 
         // Publication du fichier packages.json et package-lock.json
         $this->comment('Publication du fichier packages.json et package-lock.json');
@@ -44,7 +39,7 @@ class PublishNpmVite extends Command
         $this->comment('Publication du fichier vite.config.js');
         $file_origin = StarterKit::PATH_PUBLISH_NPM_VITE . 'vite/vite.config.js';
         $destination = base_path('vite.config.js');
-        $file_system->copyDirectory($file_origin, $destination);
+        $file_system->copy($file_origin, $destination);
 
         shell_exec('npm run build');
 
