@@ -29,6 +29,15 @@ class AllCommands extends Command
         $this->info('Publication des fichiers .env');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'env');
 
+        $this->info('Publication des traits');
+        Artisan::call(StarterKit::PREFIX_SIGNATURE.'traits');
+
+        $this->info('Installation de laravel/breeze et configuration de l’authentification');
+        Artisan::call(StarterKit::PREFIX_SIGNATURE.'auth');
+
+        $this->info('Installation de silber/bouncer et publication de la migration');
+        Artisan::call(StarterKit::PREFIX_SIGNATURE.'bouncer');
+
         $this->info('Publication du fichier postcss');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'postcss');
 
@@ -43,15 +52,6 @@ class AllCommands extends Command
 
         $this->info('Installation de npm et configuration de Vite');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'npmVite');
-
-        $this->info('Publication des traits');
-        Artisan::call(StarterKit::PREFIX_SIGNATURE.'traits');
-
-        $this->info('Installation de laravel/breeze et configuration de l’authentification');
-        Artisan::call(StarterKit::PREFIX_SIGNATURE.'auth');
-
-        $this->info('Installation de silber/bouncer et publication de la migration');
-        Artisan::call(StarterKit::PREFIX_SIGNATURE.'bouncer');
 
         $this->info('Publication des resources communes');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'commun');
