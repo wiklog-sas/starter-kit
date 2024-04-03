@@ -91,7 +91,7 @@ class PublishCrudTemplate extends Command
         $folder_origin = StarterKit::PATH_PUBLISH_CRUD_TEMPLATE. 'views';
         
         $destination = resource_path('views/livre');
-        $file_system->makeDirectory(resource_path('views/livre'), recursive: true);
+        $this->createDirIfNotExists(resource_path('views/livre'));
         $file_system->copyDirectory($folder_origin, $destination);
 
         return self::SUCCESS;
