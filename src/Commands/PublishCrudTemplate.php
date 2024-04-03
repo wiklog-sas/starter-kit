@@ -106,7 +106,7 @@ class PublishCrudTemplate extends Command
     public function createDirIfNotExists(string $path): void
     {
         $file_system = new Filesystem();
-        if ($file_system->exists($path)) {
+        if (! $file_system->exists($path)) {
             $file_system->makeDirectory($path, recursive: true);
         }
     }
