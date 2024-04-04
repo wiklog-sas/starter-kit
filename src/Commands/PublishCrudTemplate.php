@@ -73,10 +73,22 @@ class PublishCrudTemplate extends Command
         $destination = database_path('factories/LivreFactory.php');
         $file_system->copy($file_origin, $destination);
 
+        // Publication de la UserFactory
+        $this->comment('Publication de la user factory');
+        $file_origin = StarterKit::PATH_PUBLISH_CRUD_TEMPLATE. 'UserFactory.php';
+        $destination = database_path('factories/UserFactory.php');
+        $file_system->copy($file_origin, $destination);
+
         // Publication du seeder
         $this->comment('Publication du seeder');
         $file_origin = StarterKit::PATH_PUBLISH_CRUD_TEMPLATE. 'LivreSeeder.php';
         $destination = database_path('seeders/LivreSeeder.php');
+        $file_system->copy($file_origin, $destination);
+
+        // Publication du DatabaseSeeder
+        $this->comment('Publication du DatabaseSeeder');
+        $file_origin = StarterKit::PATH_PUBLISH_CRUD_TEMPLATE. 'DatabaseSeeder.php';
+        $destination = database_path('seeders/DatabaseSeeder.php');
         $file_system->copy($file_origin, $destination);
 
         // Publication du test

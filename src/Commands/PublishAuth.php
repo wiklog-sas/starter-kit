@@ -35,14 +35,6 @@ class PublishAuth extends Command
         $this->info('Installation du stack blade');
         shell_exec('php artisan breeze:install blade');
 
-        // Suppression fichier inutile
-        $this->info('Suppression de fichiers inutiles');
-        $file_system->deleteDirectory(resource_path('views/profile'));
-        $file_system->delete(resource_path('views/welcome.blade.php'));
-        $file_system->delete(resource_path('views/dashboard.blade.php'));
-        $file_system->delete(base_path('tests/Feature/ProfileTest.php'));
-        $file_system->delete(app_path('Http/Controllers/ProfileController.php'));
-
         // Fix tests
         $this->info('Fix tests');
         $file_origin = StarterKit::PATH_PUBLISH_AUTH . 'ExampleTest.php';
@@ -74,6 +66,16 @@ class PublishAuth extends Command
         // Modification RouteServiceProvider
         $this->info('Modification RouteServiceProvider');
         $file_system->copy(StarterKit::PATH_PUBLISH_AUTH . 'RouteServiceProvider.php', app_path('Providers/RouteServiceProvider.php'));
+
+        // Suppression fichier inutile
+        $this->info('Suppression de fichiers inutiles');
+        $file_system->deleteDirectory(resource_path('views/profile'));
+        $file_system->delete(resource_path('views/welcome.blade.php'));
+        $file_system->delete(resource_path('views/dashboard.blade.php'));
+        $file_system->delete(base_path('tests/Feature/ProfileTest.php'));
+        $file_system->delete(app_path('Http/Controllers/ProfileController.php'));
+        $file_system->delete(app_path('Http/Controllers/ProfileController.php'));
+        $file_system->delete(base_path('tailwind.config.css'));
 
         $this->info('Publication réussis !');
 
