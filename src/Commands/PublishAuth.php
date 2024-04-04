@@ -75,7 +75,7 @@ class PublishAuth extends Command
         $file_system->delete(base_path('tests/Feature/ProfileTest.php'));
         $file_system->delete(app_path('Http/Controllers/ProfileController.php'));
         $file_system->delete(app_path('Http/Controllers/ProfileController.php'));
-        $file_system->delete(base_path('tailwind.config.css'));
+        $file_system->delete(base_path('tailwind.config.js'));
 
         $this->info('Publication réussis !');
 
