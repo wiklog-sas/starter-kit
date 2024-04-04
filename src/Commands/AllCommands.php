@@ -121,6 +121,13 @@ class AllCommands extends Command
         $this->info('Publication du fichier de configuration pour le workflow de GitHub Action');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'workflow');
 
+        $this->info('Génération de la clé de l’application');
+        shell_exec('php artisan key:generate');
+        $this->comment('Pensez à l’ajouter aussi pour le .env.testing');
+
+        $this->info('Lancement des seeders');
+        shell_exec('php artisan db:seed');
+
         $this->warn('Publication réussis !');
 
         return self::SUCCESS;
