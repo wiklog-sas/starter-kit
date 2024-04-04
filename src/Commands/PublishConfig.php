@@ -29,7 +29,7 @@ class PublishConfig extends Command
 
         // Publication du kernel
         $this->info('Publication du fichier app.php');
-        $file_origin = StarterKit::PATH_PUBLISH_CONF . 'app.php';
+        $file_origin = StarterKit::PATH_PUBLISH_CONFIG . 'app.php';
         $destination = config_path('app.php');
         $file_system->copy($file_origin, $destination);
 
