@@ -33,7 +33,7 @@ class PublishBouncer extends Command
 
         // Publication du kernel
         $this->comment('Publication de la migration');
-        shell_exec('php artisan vendor:publish --tag="bouncer.migrations');
+        shell_exec('php artisan vendor:publish --tag="bouncer.migrations"');
 
         // Publication de User
         $this->comment('Publication du model User.php');
