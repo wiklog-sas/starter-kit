@@ -124,6 +124,9 @@ class AllCommands extends Command
         $this->info('Génération de la clé de l’application');
         shell_exec('php artisan key:generate');
         $this->comment('Pensez à l’ajouter aussi pour le .env.testing');
+        shell_exec('php artisan config:cache');
+        $this->composer->dumpOptimized();
+
 
         $this->info('Lancement des seeders');
         shell_exec('php artisan db:seed');
