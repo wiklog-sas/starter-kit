@@ -33,6 +33,8 @@ class PublishConfig extends Command
         $destination = config_path('app.php');
         $file_system->copy($file_origin, $destination);
 
+        shell_exec('php artisan config:cache');
+
         $this->comment('Publication du fichier app.php réussis !');
 
         return self::SUCCESS;
