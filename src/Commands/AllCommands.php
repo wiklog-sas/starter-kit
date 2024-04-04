@@ -67,6 +67,9 @@ class AllCommands extends Command
         $this->info('Publication du controller');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'controller');
 
+        $this->info('Publication du fichier ExtendBlueprint.php');
+        Artisan::call(StarterKit::PREFIX_SIGNATURE.'blueprint');
+
         $this->info('Publication d’un crud template basique');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'template-crud');
 
@@ -75,9 +78,6 @@ class AllCommands extends Command
 
         $this->info('Publication du fichier editorconfig');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'editorconfig');
-
-        $this->info('Publication du fichier ExtendBlueprint.php');
-        Artisan::call(StarterKit::PREFIX_SIGNATURE.'blueprint');
 
         $this->info('Configuration de git');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'git');

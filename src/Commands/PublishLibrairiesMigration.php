@@ -31,10 +31,12 @@ class PublishLibrairiesMigration extends Command
         $this->comment('Publications du fichier de migration');
 
         $file_origin = StarterKit::PATH_PUBLISH_LIBRAIRIES_MIGRATION.'2024_01_23_112424_create_librairies_table.php';
-        $destination = database_path('migrations/2024_01_23_112424_create_librairies_table.php');
+        $destination = database_path('migrations/'. date('Y_m_d_His') . '_create_librairies_table.php');
         $file_system->copy($file_origin, $destination);
 
         $this->comment('Publication de la migration réussis !');
+
+        shell_exec('php artisan migrate');
 
         return self::SUCCESS;
     }
