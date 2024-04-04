@@ -26,7 +26,10 @@ class PublishNpmVite extends Command
 
     public function handle(): int
     {
-        $file_system = new Filesystem();     
+        $file_system = new Filesystem();
+
+        // Suppression du répertoire node_modules
+        shell_exec('rm -rf node_modules');
 
         // Publication du fichier packages.json
         $this->comment('Publication du fichier packages.json');
