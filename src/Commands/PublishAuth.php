@@ -71,6 +71,10 @@ class PublishAuth extends Command
         $this->info('Publication des fichiers blades pour l’authentification');
         $file_system->copyDirectory(StarterKit::PATH_PUBLISH_AUTH . 'auth', resource_path('views/auth'));
 
+        // Modification RouteServiceProvider
+        $this->info('Modification RouteServiceProvider');
+        $file_system->copy(StarterKit::PATH_PUBLISH_AUTH . 'RouteServiceProvider.php', app_path('Providers/RouteServiceProvider.php'));
+
         $this->info('Publication réussis !');
 
         return self::SUCCESS;
