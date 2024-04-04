@@ -94,7 +94,7 @@ class PublishCrudTemplate extends Command
         $this->createDirIfNotExists(resource_path('views/livre'));
         $file_system->copyDirectory($folder_origin, $destination);
 
-        shell_exec('php artisan migrate');
+        shell_exec('artisan migrate');
 
         return self::SUCCESS;
     }
