@@ -27,9 +27,12 @@ class AllCommands extends Command
     public function handle(): int
     {
         shell_exec('php artisan migrate:fresh');
-        
+
         $this->info('Publication des fichiers .env');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'env');
+
+        $this->info('Publication du fichier de configuration app.php');
+        Artisan::call(StarterKit::PREFIX_SIGNATURE.'config');
 
         $this->info('Publication des traits');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'traits');

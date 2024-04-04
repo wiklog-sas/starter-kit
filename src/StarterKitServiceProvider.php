@@ -26,6 +26,7 @@ use Wiklog\StarterKit\Commands\PublishResourcesViews;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Wiklog\StarterKit\Commands\AllCommands;
 use Wiklog\StarterKit\Commands\PublishBouncer;
+use Wiklog\StarterKit\Commands\PublishConfig;
 use Wiklog\StarterKit\Commands\PublishCrudTemplate;
 use Wiklog\StarterKit\Commands\PublishEnv;
 use Wiklog\StarterKit\Commands\PublishExtendBlueprint;
@@ -55,6 +56,7 @@ class StarterKitServiceProvider extends PackageServiceProvider
             ->hasCommand(PublishCommonJs::class)
             ->hasCommand(PublishComponents::class)
             ->hasCommand(PublishCrudTemplate::class)
+            ->hasCommand(PublishConfig::class)
             ->hasCommand(PublishController::class)
             ->hasCommand(PublishDump::class)
             ->hasCommand(PublishEditorConfig::class)
