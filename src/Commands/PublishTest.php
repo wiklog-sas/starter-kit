@@ -5,6 +5,7 @@ namespace Wiklog\StarterKit\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Composer;
 use Wiklog\StarterKit\StarterKit;
+use Illuminate\Support\Facades\Artisan;
 
 class PublishTest extends Command
 {
@@ -24,7 +25,8 @@ class PublishTest extends Command
 
     public function handle(): int
     {
-        shell_exec('php artisan config:cache');
+        shell_exec('php artisan vendor:publish --provider="NunoMaduro\PhpInsights\Application\Adapters\Laravel\InsightsServiceProvider"');
+        Artisan::call('key:generate');
 
         return self::SUCCESS;
     }

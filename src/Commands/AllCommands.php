@@ -122,6 +122,7 @@ class AllCommands extends Command
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'workflow');
 
         $this->info('Génération de la clé de l’application');
+        Artisan::call('key:generate');
         Artisan::call('config:cache');
         $this->comment('Pensez à l’ajouter aussi pour le .env.testing');
         $this->composer->dumpOptimized();
