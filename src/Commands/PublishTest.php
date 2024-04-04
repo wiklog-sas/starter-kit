@@ -25,7 +25,6 @@ class PublishTest extends Command
 
     public function handle(): int
     {
-        shell_exec('php artisan vendor:publish --provider="NunoMaduro\PhpInsights\Application\Adapters\Laravel\InsightsServiceProvider"');
         Artisan::call('key:generate');
 
         return self::SUCCESS;

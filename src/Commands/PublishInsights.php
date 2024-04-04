@@ -32,10 +32,11 @@ class PublishInsights extends Command
         $this->composer->requirePackages(['nunomaduro/phpinsights'], true);
 
         // Publication du fichier de configuration
-        shell_exec('php artisan vendor:publish --provider="NunoMaduro\PhpInsights\Application\Adapters\Laravel\InsightsServiceProvider"');
         $file_origin = StarterKit::PATH_PUBLISH_INSIGHTS.'insights.php';
         $destination = config_path('insights.php');
         $file_system->copy($file_origin, $destination);
+
+        shell_exec('php artisan config:cache');
 
         $this->comment('Publication de php insights réussis !');
 
