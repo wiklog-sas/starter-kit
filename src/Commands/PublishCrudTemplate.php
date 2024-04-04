@@ -86,6 +86,13 @@ class PublishCrudTemplate extends Command
         $destination = base_path('tests/Feature/Models/LivreTest.php');
         $file_system->copy($file_origin, $destination);
 
+        // Publication du TestCase
+        $this->comment('Publication du testcase');
+        $file_origin = StarterKit::PATH_PUBLISH_CRUD_TEMPLATE. 'TestCase.php';
+        $this->createDirIfNotExists(base_path('tests/'));
+        $destination = base_path('tests/TestCase.php');
+        $file_system->copy($file_origin, $destination);
+
         // Publication des vues
         $this->comment('Publication des vues');
         $folder_origin = StarterKit::PATH_PUBLISH_CRUD_TEMPLATE. 'views';
