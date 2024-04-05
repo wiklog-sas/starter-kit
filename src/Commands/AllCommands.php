@@ -33,7 +33,6 @@ class AllCommands extends Command
         $this->composer->dumpAutoloads();
         Artisan::call('config:cache');
         $this->info('Génération de la clé de l’application');
-        shell_exec('php artisan key:generate');
         Artisan::call('key:generate');
         $this->comment('Pensez à l’ajouter aussi pour le .env.testing');
         $this->composer->dumpOptimized();
