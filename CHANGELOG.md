@@ -6,4 +6,10 @@ All notable changes to `starter-kit` will be documented in this file.
 
 ### Added
 
-- Ajout des composants inputs pour les formulaires laravel publiable via commande cli
+- Ajout des composants inputs via la commande cli
+
+## [0.2] - 2024-03-25
+
+### Added
+
+- Ajout du dossier commun

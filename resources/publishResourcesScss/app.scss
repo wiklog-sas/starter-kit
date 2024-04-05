@@ -1,0 +1,31 @@
+$primary: #052f5a;
+
+$fa-font-path: "../../webfonts";
+
+// CSS Bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+// Datatables Bootstrap 5
+@import 'datatables-bs5';
+
+// CSS Font Awesome
+@import "./fontawesome/scss/fontawesome.scss";
+@import "./fontawesome/scss/solid.scss";
+@import "./fontawesome/scss/regular.scss";
+
+// CSS custom
+@import 'custom';
+// CSS jqueryui
+@import "~node_modules/jqueryui/jquery-ui.min.css";
+// CSS datepicker
+@import "~node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker";
+// // CSS selectpicker          //bootstrap-select est incompatible avec Vite
+// @import "~node_modules/bootstrap-select/dist/css/bootstrap-select";
+// CSS select2
+@import "~node_modules/select2/dist/css/select2.min.css";
+@import "~node_modules/select2-bootstrap-5-theme/dist/select2-bootstrap-5-theme";
+// CSS owl.carousel
+@import "~node_modules/owl.carousel/dist/assets/owl.carousel.min.css";
+@import "~node_modules/owl.carousel/dist/assets/owl.theme.default.min.css";
+// CSS leaflet
+@import "~node_modules/leaflet/dist/leaflet.css";
