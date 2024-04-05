@@ -26,10 +26,10 @@ class AllCommands extends Command
 
     public function handle(): int
     {
-        shell_exec('php artisan migrate:fresh');
-
         $this->info('Publication des fichiers .env');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'env');
+
+        shell_exec('php artisan migrate:fresh');
 
         $this->info('Publication du fichier de configuration app.php');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'config');
@@ -122,8 +122,7 @@ class AllCommands extends Command
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'workflow');
 
         $this->info('Génération de la clé de l’application');
-        Artisan::call('config:cache');
-        $this->composer->dumpOptimized();
+        shell_exec('php artisan key:generate');
         Artisan::call('key:generate');
         Artisan::call('config:cache');
         $this->comment('Pensez à l’ajouter aussi pour le .env.testing');

@@ -25,7 +25,7 @@ class PublishTest extends Command
 
     public function handle(): int
     {
-        Artisan::call('key:generate');
+        shell_exec('php artisan key:generate');
 
         return self::SUCCESS;
     }
