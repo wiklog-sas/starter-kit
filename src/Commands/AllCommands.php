@@ -35,6 +35,7 @@ class AllCommands extends Command
         $this->comment('Pensez à l’ajouter aussi pour le .env.testing');
         Artisan::call('config:cache');
         $this->composer->dumpOptimized();
+        $this->composer->dumpAutoloads();
 
         shell_exec('php artisan migrate:fresh');
 
