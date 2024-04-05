@@ -29,6 +29,13 @@ class AllCommands extends Command
         $this->info('Publication des fichiers .env');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'env');
 
+        $this->info('Génération de la clé de l’application');
+        shell_exec('php artisan key:generate');
+        Artisan::call('key:generate');
+        $this->comment('Pensez à l’ajouter aussi pour le .env.testing');
+        Artisan::call('config:cache');
+        $this->composer->dumpOptimized();
+
         shell_exec('php artisan migrate:fresh');
 
         $this->info('Publication du fichier de configuration app.php');
@@ -82,7 +89,7 @@ class AllCommands extends Command
         $this->info('Configuration de git');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'git');
 
-        $this->info('Publication du dossier helpers.php et ajout en fichier autoload dans le fichier composer.json');
+        $this->info('Publication du fichier helpers.php et ajout en fichier autoload dans le composer.json');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'helpers');
 
         $this->info('Installation et configuration de barryvdh/laravel-ide-helper');
@@ -120,14 +127,6 @@ class AllCommands extends Command
 
         $this->info('Publication du fichier de configuration pour le workflow de GitHub Action');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'workflow');
-
-        $this->info('Génération de la clé de l’application');
-        shell_exec('php artisan key:generate');
-        Artisan::call('key:generate');
-        Artisan::call('config:cache');
-        $this->comment('Pensez à l’ajouter aussi pour le .env.testing');
-        $this->composer->dumpOptimized();
-
 
         $this->info('Lancement des seeders');
         shell_exec('php artisan db:seed');
