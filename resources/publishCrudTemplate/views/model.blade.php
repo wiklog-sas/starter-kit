@@ -47,9 +47,9 @@
                 {{-- <div class="col-4">
                     <x-inputs.input-selectpicker property="genre_id" :entity="$livre"  :values="$genres" itemLabel="libelle" label="Genre du livre" :disabled="$disabled" required />
                 </div> --}}
-                <div class="col-4">
+                {{-- <div class="col-4">
                     <x-inputs.input-selectpicker property="livre_id" :values="$livres" itemLabel="title" label="Livre" :disabled="$disabled" />
-                </div>
+                </div> --}}
 
                 {{-- Select2 --}}
                 <div class="col-4">
