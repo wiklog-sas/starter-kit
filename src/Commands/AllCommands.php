@@ -138,7 +138,7 @@ class AllCommands extends Command
         shell_exec('php artisan ide-helper:generate');
         shell_exec('php artisan ide-helper:eloquent');
         shell_exec('vendor/bin/pint');
-        shell_exec('artisan insight --fix --format=json > insight.json');
+        shell_exec('php artisan insight --fix --format=json > insight.json');
 
         $this->warn('Publication réussis !');
 
