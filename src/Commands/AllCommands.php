@@ -29,6 +29,9 @@ class AllCommands extends Command
         $this->info('Publication des fichiers .env');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'env');
 
+        $this->info('Publication du fichier de configuration app.php');
+        Artisan::call(StarterKit::PREFIX_SIGNATURE.'config');
+
         $this->composer->dumpOptimized();
         $this->composer->dumpAutoloads();
         Artisan::call('config:cache');
@@ -40,9 +43,6 @@ class AllCommands extends Command
         Artisan::call('config:cache');
 
         shell_exec('php artisan migrate:fresh');
-
-        $this->info('Publication du fichier de configuration app.php');
-        Artisan::call(StarterKit::PREFIX_SIGNATURE.'config');
 
         $this->info('Publication des traits');
         Artisan::call(StarterKit::PREFIX_SIGNATURE.'traits');
