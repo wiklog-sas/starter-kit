@@ -134,12 +134,11 @@ class AllCommands extends Command
         $this->info('Lancement des seeders');
         shell_exec('php artisan db:seed');
 
+        $this->info('Lancement de ide helper, pint, insights (fix)');
         shell_exec('php artisan ide-helper:generate');
-        shell_exec('php artisan ide-helper:models -R');
         shell_exec('php artisan ide-helper:eloquent');
         shell_exec('vendor/bin/pint');
         shell_exec('artisan insight --fix --format=json > insight.json');
-        shell_exec('vendor/bin/phpstan');
 
         $this->warn('Publication réussis !');
 
