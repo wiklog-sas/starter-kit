@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('extraHead')
-    {!! cdnCss('bootstrap-select') !!}
+    {{-- {!! cdnCss('bootstrap-select') !!} --}}
     {{-- {!! cdnCss('bootstrap-datepicker') !!} --}}
 @endsection
 
@@ -70,7 +70,7 @@
                 </div>
 
                 <div class="col-4">
-                    <x-inputs.input-selectpicker property="livre_id" :values="$livres" itemLabel="title" label="Livre" :disabled="$disabled" />
+                    {{-- <x-inputs.input-selectpicker property="livre_id" :values="$livres" itemLabel="title" label="Livre" :disabled="$disabled" /> --}}
                 </div>
             </div>
 
@@ -85,17 +85,17 @@
 @endsection
 
 @section('endScripts')
-    {!! cdnJs('bootstrap-select') !!}
+    {{-- {!! cdnJs('bootstrap-select') !!} --}}
     {{-- {!! cdnJS('bootstrap-datepicker') !!} --}}
 
-    <script type="module">
+    {{-- <script type="module">
         CKEditor.create( document.querySelector( '#editor' ), {
             language: 'fr',
         })
         .catch( error => {
             console.error( error );
         } );
-    </script>
+    </script> --}}
     
     <script type="module">
         $('.datepicker').datepicker({
