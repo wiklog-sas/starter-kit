@@ -12,6 +12,8 @@ composer require --dev wiklog/starter-kit
 
 ## Usage
 
+Launch Vagrant and commands in admin mode in windows cli (ssh for commands)
+
 You can publish .env:
 ```bash
 php artisan starter:env
