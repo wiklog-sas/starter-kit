@@ -37,6 +37,9 @@ class PublishEnv extends Command
         $this->comment('Publication des fichiers .env réussis !');
 
         $this->info('Génération de la clé de l’application');
+        $this->composer->dumpOptimized();
+        $this->composer->dumpAutoloads();
+        Artisan::call('config:cache');
         Artisan::call('key:generate');
         $this->comment('Pensez à l’ajouter aussi pour le .env.testing');
         $this->composer->dumpOptimized();
