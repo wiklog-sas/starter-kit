@@ -29,7 +29,7 @@ class PublishEnv extends Command
         $file_system = new Filesystem();
 
         // Publication des fichiers .env
-        $this->comment('Publication des fichier .env');
+        $this->info('Publication des fichiers .env');
         $folder_origin = StarterKit::PATH_PUBLISH_ENV;
         $destination = base_path();
         $file_system->copyDirectory($folder_origin, $destination);
@@ -42,10 +42,11 @@ class PublishEnv extends Command
         $this->composer->dumpOptimized();
         $this->composer->dumpAutoloads();
         Artisan::call('config:cache');
+        $this->comment('Génération de la clé de l’application réussi !');
         
         $this->comment('Configurer les puis exécuter la commande : artisan starter:init');
 
-        $this->info('Vagrant doit être lancer en mode admin et les commandes aussi dans le terminal windows');
+        $this->comment('Vagrant doit être lancer en mode admin et les commandes aussi dans le terminal windows');
 
         return self::SUCCESS;
     }
