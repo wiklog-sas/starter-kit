@@ -36,7 +36,7 @@ class PublishLibrairiesMigration extends Command
 
         $this->comment('Publication de la migration réussis !');
 
-        shell_exec('php artisan migrate');
+        // shell_exec('php artisan migrate');
 
         return self::SUCCESS;
     }

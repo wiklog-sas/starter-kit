@@ -41,7 +41,7 @@ class PublishBouncer extends Command
         $destination = app_path('Models/User.php');
         $file_system->copy($file_origin, $destination);
 
-        shell_exec('php artisan migrate');
+        // shell_exec('php artisan migrate');
 
         $this->comment('Installation de Bouncer et publication de la migration réussis !');
 

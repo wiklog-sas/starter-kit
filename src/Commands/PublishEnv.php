@@ -3,9 +3,10 @@
 namespace Wiklog\StarterKit\Commands;
 
 use Illuminate\Console\Command;
-use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Composer;
 use Wiklog\StarterKit\StarterKit;
+use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Facades\Artisan;
 
 class PublishEnv extends Command
 {
@@ -28,12 +29,27 @@ class PublishEnv extends Command
         $file_system = new Filesystem();
 
         // Publication des fichiers .env
-        $this->comment('Publication des fichier .env');
+        $this->info('Publication des fichiers .env');
         $folder_origin = StarterKit::PATH_PUBLISH_ENV;
         $destination = base_path();
         $file_system->copyDirectory($folder_origin, $destination);
 
         $this->comment('Publication des fichiers .env réussis !');
+
+        $this->info('Génération de la clé de l’application');
+        $this->composer->dumpOptimized();
+        $this->composer->dumpAutoloads();
+        Artisan::call('config:cache');
+        Artisan::call('key:generate');
+        $this->comment('Pensez à l’ajouter aussi pour le .env.testing');
+        $this->composer->dumpOptimized();
+        $this->composer->dumpAutoloads();
+        Artisan::call('config:cache');
+        $this->comment('Génération de la clé de l’application réussi !');
+        
+        $this->comment('Configurer les puis exécuter la commande : artisan starter:init');
+
+        $this->comment('Vagrant doit être lancer en mode admin et les commandes aussi dans le terminal windows');
 
         return self::SUCCESS;
     }
