@@ -13,3 +13,9 @@ All notable changes to `starter-kit` will be documented in this file.
 ### Added
 
 - Ajout du dossier commun
+
+## [10.0] - 2024-04-05
+
+### Added
+
+- Peut générer un projet entier avec starter:all sur Laravel 10

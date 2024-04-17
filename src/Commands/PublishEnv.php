@@ -34,6 +34,9 @@ class PublishEnv extends Command
         $file_system->copyDirectory($folder_origin, $destination);
 
         $this->comment('Publication des fichiers .env réussis !');
+        $this->comment('Configurer les puis exécuter la commande : artisan starter:init');
+
+        $this->info('Vagrant doit être lancer en mode admin et les commandes aussi dans le terminal windows');
 
         return self::SUCCESS;
     }

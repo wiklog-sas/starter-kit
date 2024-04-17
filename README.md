@@ -12,9 +12,13 @@ composer require --dev wiklog/starter-kit
 
 ## Usage
 
-You can publish with:
+You can publish .env:
 ```bash
-php artisan starter:all
+php artisan starter:env
+```
+After configuring the .env files, you can publish with:
+```bash
+php artisan starter:init
 ```
 
 ## Changelog
