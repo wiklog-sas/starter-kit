@@ -36,12 +36,6 @@ class AllCommands extends Command
             $this->composer->dumpOptimized();
             $this->composer->dumpAutoloads();
             Artisan::call('config:cache');
-            $this->info('Génération de la clé de l’application');
-            Artisan::call('key:generate');
-            $this->comment('Pensez à l’ajouter aussi pour le .env.testing');
-            $this->composer->dumpOptimized();
-            $this->composer->dumpAutoloads();
-            Artisan::call('config:cache');
 
             $this->info('Publication des traits');
             Artisan::call(StarterKit::PREFIX_SIGNATURE.'traits');
@@ -108,6 +102,9 @@ class AllCommands extends Command
 
             $this->info('Publication de la migration de la table librairies');
             Artisan::call(StarterKit::PREFIX_SIGNATURE.'librairies');
+
+            $this->info('Publication du logo');
+            Artisan::call(StarterKit::PREFIX_SIGNATURE.'logo');
 
             $this->info('Installation de setasign/fpdf et setasign/fpdi et publication des fichiers PDFMulticell');
             Artisan::call(StarterKit::PREFIX_SIGNATURE.'pdfMulticell');

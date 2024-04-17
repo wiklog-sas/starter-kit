@@ -38,6 +38,7 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Wiklog\StarterKit\Commands\PublishAllowPlugins;
 use Wiklog\StarterKit\Commands\PublishExtendBlueprint;
 use Wiklog\StarterKit\Commands\PublishLibrairiesMigration;
+use Wiklog\StarterKit\Commands\PublishLogo;
 
 class StarterKitServiceProvider extends PackageServiceProvider
 {
@@ -73,6 +74,7 @@ class StarterKitServiceProvider extends PackageServiceProvider
             ->hasCommand(PublishLarastan::class)
             ->hasCommand(PublishNpmVite::class)
             ->hasCommand(PublishLibrairiesMigration::class)
+            ->hasCommand(PublishLogo::class)
             ->hasCommand(PublishPdfMulticell::class)
             ->hasCommand(PublishPhpUnit::class)
             ->hasCommand(PublishPint::class)

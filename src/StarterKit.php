@@ -49,6 +49,8 @@ class StarterKit
 
     public const PATH_PUBLISH_LIBRAIRIES_MIGRATION = self::PATH_RESOURCES.'publishLibrairiesMigration/';
 
+    public const PATH_PUBLISH_LOGO= self::PATH_RESOURCES.'publishLogo/';
+
     public const PATH_PUBLISH_NPM_VITE= self::PATH_RESOURCES.'publishNpmVite/';
 
     public const PATH_PUBLISH_PDF_MULTICELL = self::PATH_RESOURCES.'publishPdfMulticell/';
