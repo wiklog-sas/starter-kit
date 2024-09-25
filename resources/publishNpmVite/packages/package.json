@@ -17,7 +17,7 @@
         "vite": "^4.5.5"
     },
     "dependencies": {
-        "@ckeditor/ckeditor5-build-classic": "^41.2.1",
+        "@ckeditor/ckeditor5-build-classic": "^43.1.1",
         "@popperjs/core": "^2.11.7",
         "bootstrap": "^5.3.2",
         "bootstrap-datepicker": "^1.10.0",
