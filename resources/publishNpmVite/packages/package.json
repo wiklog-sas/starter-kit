@@ -14,7 +14,7 @@
         "postcss": "^8.4.31",
         "sass": "^1.62.1",
         "select2": "^4.1.0-rc.0",
-        "vite": "^4.5.5"
+        "vite": "^4.5.9"
     },
     "dependencies": {
         "@ckeditor/ckeditor5-build-classic": "^43.1.1",
@@ -42,6 +42,6 @@
         "owl.carousel": "^2.3.4",
         "pdfmake": "^0.2.7",
         "select2-bootstrap-5-theme": "^1.3.0",
-        "sweetalert2": "^11.14.1"
+        "sweetalert2": "^11.15.10"
     }
 }
